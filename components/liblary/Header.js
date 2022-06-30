@@ -1,13 +1,11 @@
 import cx from "classnames"
 import {connect} from "react-redux";
 import {store} from "../context/store";
-
+import {toggleTheme} from "components/context"
 
 function Header(props){
     const switchTheme = () => {
-        store.dispatch({
-            type: 'TOGGLE_THEME'
-        });
+        store.dispatch(toggleTheme());
     }
 
     return(

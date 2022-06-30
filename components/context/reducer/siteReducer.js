@@ -22,6 +22,12 @@ function siteReducer(state = initialState, action){
                 theme: state.theme === 'light' ? 'dark' : 'light'
             };
             return data;
+        case "CUSTOM_THEME":
+            data = {
+                ...state,
+                theme: action.theme
+            };
+            return data;
         case "UPDATE_LANGUAGE":
             data = {
                 ...state,
