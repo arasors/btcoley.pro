@@ -12,3 +12,10 @@ export function toggleTheme(theme = false){
     }
 
 }
+
+export function updateSite(payload = false){
+    return{
+        type: 'UPDATE_SITE',
+        payload: payload
+    }
+}

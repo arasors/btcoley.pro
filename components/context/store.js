@@ -5,16 +5,18 @@ import { createWrapper } from "next-redux-wrapper";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import siteReducer from "./reducer/siteReducer";
+import {siteReducer,marketReducer, orderReducer} from "./";
 
 const rootReducer = combineReducers({
     site: siteReducer,
+    market: marketReducer,
+    order: orderReducer
 });
 
 const persistConfig = {
     key: "context",
     storage,
-    blacklist: ["ui"]
+    blacklist: ["ui","market","order"]
 };
 // middleware
 const middleware = [thunk];

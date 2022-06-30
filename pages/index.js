@@ -6,7 +6,7 @@ import Home from "./home";
 import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
 import {connect} from "react-redux";
-
+import {SocketContext} from "../components/socket/market";
 
 class Main extends Component{
     constructor(props) {
@@ -19,6 +19,7 @@ class Main extends Component{
 
 
     render() {
+
         return(
             <main className={cx({
                 'w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col': true,
@@ -28,7 +29,7 @@ class Main extends Component{
                 [this.props.context?.defaultClass.border.dark || '']: this.props.context?.theme==='dark',
             })}>
                 <Header />
-                <Home />
+                <SocketContext.Consumer>{socket => <Home socket={socket} />}</SocketContext.Consumer>
                 <Footer />
             </main>
         )

@@ -1,6 +1,7 @@
 const initialState = {
     theme: 'light',
     language: 'TR',
+    currencies: {},
     defaultClass: {
         background: {
             light: 'bg-slate-200 text-slate-900',
@@ -9,6 +10,10 @@ const initialState = {
         border: {
             light: 'border-slate-300',
             dark: 'border-slate-700'
+        },
+        divide: {
+            light: 'divide-slate-300',
+            dark: 'divide-slate-700'
         }
     }
 };
@@ -32,6 +37,12 @@ function siteReducer(state = initialState, action){
             data = {
                 ...state,
                 language: action.value
+            };
+            return data;
+        case "UPDATE_SITE":
+            data = {
+                ...state,
+                ...action.payload
             };
             return data;
 
