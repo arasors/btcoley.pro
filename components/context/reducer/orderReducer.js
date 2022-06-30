@@ -4,6 +4,7 @@ export default function orderReducer(state = initialState, action){
     let data;
     switch (action.type){
         case "UPDATE_ORDER_DATA":
+            // console.log(action.payload);
             data = {
                 ...state,
                 ...action.payload
