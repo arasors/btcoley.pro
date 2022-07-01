@@ -84,7 +84,7 @@ nav#mobile {
 }
 
 nav#mobile #open-menu {
-    @apply flex flex-col w-screen gap-y-2;
+    @apply flex flex-col w-screen gap-y-2 primary-background;
     @apply fixed left-0 bottom-0;
     @apply px-4 py-4;
     @apply transition-all ease-linear translate-y-full;
@@ -105,15 +105,10 @@ nav {
     @apply primary-border-bottom;
 }
 
-footer {
-    @apply flex justify-between w-screen px-2 py-2 items-center;
-    @apply primary-background;
-    @apply primary-border-top;
-}
-
 /***/
 nav #logo {
-    @apply object-contain h-10 w-auto px-3 cursor-pointer
+    @apply object-contain h-9 w-auto px-3 cursor-pointer;
+    @apply transition-all ease-in;
 }
 
 nav #left,
@@ -132,6 +127,15 @@ nav#desktop #center {
 
 nav#desktop #right {
     @apply flex-auto
+}
+
+footer {
+    @apply flex justify-between w-screen px-3 py-2 items-center h-8;
+    @apply primary-background;
+    @apply primary-border-top;
+}
+footer #logo {
+    @apply object-contain h-5 w-auto cursor-pointer grayscale hover:grayscale-0 transition-all
 }
 
 button.nav-link {
@@ -233,3 +237,24 @@ button.nav-link {
     cursor: pointer;
 }
 /***/
+section#home{
+    @apply flex flex-col h-full;
+}
+section#home section#ticker{
+    @apply flex h-16 primary-border-bottom;
+
+}
+section#home section#advanced{
+    @apply flex flex-row h-full
+}
+section#market-table{
+    @apply primary-border-right h-full basis-1/5;
+    @apply flex flex-col;
+}
+
+section#market-table #tab{
+    @apply primary-background-reverse rounded-none
+}
+section#market-table #tab button{
+    @apply flex-1
+}

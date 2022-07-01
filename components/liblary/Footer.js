@@ -1,17 +1,18 @@
 import cx from "classnames";
 import {connect} from "react-redux";
+import {Logo} from "./component/Logo";
 
 function Footer(props){
     return(
         <footer>
-            <span>Footer</span>
-            <span className={'text-sm'}>copyright</span>
+            <Logo theme={props.site.theme} />
+            <span className={'text-sm font-light select-none'}>2022</span>
         </footer>
     )
 }
 const mapStateToProps = state => {
     return {
-        context: state.site,
+        site: state.site,
     };
 };
 export default connect(mapStateToProps)(Footer);

@@ -21,14 +21,14 @@ export const header = {
             {
                 auth: false,
                 text: 'navbar_gelismis_al_sat',
-                to: 'pro',
+                to: '/pro',
                 ico: 'auto',
                 dropdown: false
             },
             {
                 auth: false,
                 text: 'navbar_basit_al_sat',
-                to: 'basit',
+                to: '/basit',
                 ico: 'auto',
                 dropdown: false
             }
@@ -37,7 +37,7 @@ export const header = {
             {
                 auth: true,
                 text: 'navbar_yatir',
-                to: 'hesabim/yatir',
+                to: '/hesabim/yatir',
                 ico: 'auto',
                 variant: 'text',
                 dropdown_type: 'list',
@@ -45,13 +45,13 @@ export const header = {
                     {
                         auth: true,
                         text: 'navbar_kripto_yatir',
-                        to: 'hesabim/kripto-yatir',
+                        to: '/hesabim/kripto-yatir',
                         ico: 'kripto-yatir',
                     },
                     {
                         auth: true,
                         text: 'navbar_tl_yatir',
-                        to: 'hesabim/tl-yatir',
+                        to: '/hesabim/tl-yatir',
                         ico: 'tl-yatir',
                     }
                 ]
@@ -59,7 +59,7 @@ export const header = {
             {
                 auth: true,
                 text: 'navbar_cek',
-                to: 'hesabim/cek',
+                to: '/hesabim/cek',
                 ico: 'auto',
                 variant: 'text',
                 dropdown_type: 'list',
@@ -67,13 +67,13 @@ export const header = {
                     {
                         auth: true,
                         text: 'navbar_kripto_cek',
-                        to: 'hesabim/kripto-cek',
+                        to: '/hesabim/kripto-cek',
                         ico: 'kripto-cek',
                     },
                     {
                         auth: true,
                         text: 'navbar_tl_cek',
-                        to: 'hesabim/tl-cek',
+                        to: '/hesabim/tl-cek',
                         ico: 'tl-cek',
                     }
                 ]
@@ -81,14 +81,14 @@ export const header = {
             {
                 auth: false,
                 text: 'navbar_giris_yap',
-                to: 'auth/giris-yap',
+                to: '/auth/giris-yap',
                 ico: 'auto',
                 dropdown: false
             },
             {
                 auth: false,
                 text: 'navbar_yeni_uyelik',
-                to: 'auth/yeni-uyelik',
+                to: '/auth/yeni-uyelik',
                 ico: 'auto',
                 dropdown: false
             }

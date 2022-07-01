@@ -1,4 +1,6 @@
 import {Component} from "react";
+import MarketTable from "./component/MarketTable";
+import Ticker from "./component/Ticker";
 
 export default class Home extends Component{
 
@@ -12,8 +14,11 @@ export default class Home extends Component{
 
     render() {
         return(
-            <section id="home" className={'flex flex-1'}>
-
+            <section id="home">
+                <Ticker />
+                <section id="advanced">
+                    <MarketTable />
+                </section>
             </section>
         )
     }
