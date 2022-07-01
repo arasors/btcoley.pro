@@ -1,9 +1,13 @@
 import {Component} from "react";
 import Image from 'next/future/image';
 import {connect} from "components/context"
-import {switchTheme, resetOrder, resetMarket} from "../controllers";
+import {switchTheme, resetOrder, resetMarket, useTranslate} from "../controllers";
 import {header} from "../data/header"
 import {Logo} from "./";
+import Link from "next/link";
+import {Button} from "@mui/material";
+
+
 
 class Header extends Component{
     constructor(props) {
@@ -11,54 +15,79 @@ class Header extends Component{
     }
 
     state = {
-
+        menu: false
     }
 
 
 
     render() {
         return(
-            <nav>
-                {header.settings.left.visible===true &&
-                    <section id={'left'} className={`justify-${header.settings.left.align}`}>
-                        {header.left && header.left.map((left,key) => {
-                            if(left==='LOGO'){
-                                return(
-                                    <Logo key={key} theme={this.props.site.theme} />
-                                )
-                            }
+            <>
+                <nav id="desktop">
+                    {header.grids && Object.entries(header.grids).map((headerItem, headerKey) => {
+                        if(Object(header.settings)[headerItem[0]].visible===false) return false;
+                        return(
+                            <section key={headerKey} id={headerItem[0]} className={`custom-justify-${Object(header.settings)[headerItem[0]].align}`}>
+                                {headerItem[1] && headerItem[1].map((item,key) => {
+                                    if(item==='LOGO'){
+                                        return(
+                                            <Link href={'/'} key={key}>
+                                                <Logo theme={this.props.site.theme} />
+                                            </Link>
+                                        )
+                                    }
+                                    if(item.visible===false) return;
+                                    if(item.auth===true && (this.props.site.user.isLogin === "undefined" || !this.props.site.user.isLogin)) return;
+                                    return(
+                                        <Link href={`${item.to}`} key={key}>
+                                            <Button variant={item.variant || 'outlined'} className={'nav-link'}>
+                                                {useTranslate(item.text)}
+                                            </Button>
+                                        </Link>
+                                    )
+                                })}
+                            </section>
+                        )
+                    })}
+                </nav>
+                <nav id="mobile">
+                    <section className={`custom-justify-center`}>
+                        <Link href={'/'}>
+                            <>
+                                <Logo theme={this.props.site.theme} />
+                                <Button variant="text" onClick={() => this.setState(state => ({menu: !state.menu}))}>
+                                    <div className={`menu btn1 ${this.state.menu ? 'open' : ''}`} data-menu="1">
+                                        <div className="icon-left"></div>
+                                        <div className="icon-right"></div>
+                                    </div>
+                                </Button>
+                            </>
+                        </Link>
+                    </section>
+                    <div id="open-menu" className={this.state.menu && 'active'}>
+                        {header.grids && Object.entries(header.grids).map((headerItem, headerKey) => {
+                            if(Object(header.settings)[headerItem[0]].visible===false) return ;
+                            if(headerItem[1][0]==='LOGO') return false;
                             return(
-                                <>{left}</>
+                                <>
+                                    {headerItem[1] && headerItem[1].map((item,key) => {
+                                        if(item==='LOGO') return;
+                                        if(item.visible===false) return;
+                                        if(item.auth===true && (this.props.site.user.isLogin === "undefined" || !this.props.site.user.isLogin)) return;
+                                        return(
+                                            <Link href={`${item.to}`} key={key}>
+                                                <Button variant={item.variant || 'outlined'} className={'nav-link'}>
+                                                    {useTranslate(item.text)}
+                                                </Button>
+                                            </Link>
+                                        )
+                                    })}
+                                </>
                             )
-
                         })}
-                    </section>
-                }
-                {header.settings.center.visible === true &&
-                    <section id={'center'}>
-                        {header.center && header.center.map((center,key) => {
-                            if(center==='LOGO'){
-                                return(
-                                    <Logo key={key} theme={this.props.site.theme} />
-                                )
-                            }
-                            if(center.visible===false){return;}
-                            return(
-                                <div key={key} className={''}>
-                                    {center.text}
-                                </div>
-                            )
-
-                        })}
-                    </section>
-                }
-                {header.settings.right.visible === true &&
-                    <section id={'right'}>
-                        {header.right==='LOGO' && <Logo theme={this.props.site.theme} />}
-                    </section>
-                }
-
-            </nav>
+                    </div>
+                </nav>
+            </>
         )
     }
 }

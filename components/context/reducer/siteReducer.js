@@ -2,6 +2,9 @@ const initialState = {
     theme: 'dark',
     language: 'TR',
     currencies: {},
+    user: {
+        isLogin: false
+    }
 };
 
 function siteReducer(state = initialState, action){
