@@ -17,17 +17,17 @@ class Main extends Component{
 
     }
 
+    componentDidMount() {
+        if(this.props.site.theme!=='light'){
+            document.documentElement.classList.add('dark');
+        }
+    }
+
 
     render() {
 
         return(
-            <main className={cx({
-                'w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col': true,
-                [this.props.context?.defaultClass.background.light || '']: this.props.context?.theme==='light',
-                [this.props.context?.defaultClass.background.dark || '']: this.props.context?.theme==='dark',
-                [this.props.context?.defaultClass.border.light || '']: this.props.context?.theme==='light',
-                [this.props.context?.defaultClass.border.dark || '']: this.props.context?.theme==='dark',
-            })}>
+            <main>
                 <Header />
                 <SocketContext.Consumer>{socket => <Home socket={socket} />}</SocketContext.Consumer>
                 <Footer />
@@ -37,7 +37,7 @@ class Main extends Component{
 }
 const mapStateToProps = state => {
     return {
-        context: state.site,
+        site: state.site,
     };
 };
 export default connect(mapStateToProps)(Main);

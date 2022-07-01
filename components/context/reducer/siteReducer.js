@@ -1,21 +1,7 @@
 const initialState = {
-    theme: 'light',
+    theme: 'dark',
     language: 'TR',
     currencies: {},
-    defaultClass: {
-        background: {
-            light: 'bg-slate-200 text-slate-900',
-            dark: 'bg-slate-900 text-slate-100'
-        },
-        border: {
-            light: 'border-slate-300',
-            dark: 'border-slate-700'
-        },
-        divide: {
-            light: 'divide-slate-300',
-            dark: 'divide-slate-700'
-        }
-    }
 };
 
 function siteReducer(state = initialState, action){

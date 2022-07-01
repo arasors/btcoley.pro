@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="44.6255mm" height="47.5216mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 72.07 76.75"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:1.64;stroke-miterlimit:22.9256}
+    .fil3 {fill:none}
+    .fil1 {fill:#0071F0}
+    .fil2 {fill:#293B7B}
+    .fil0 {fill:white}
+   ]]>
+  </style>
+     <clipPath id="id0">
+      <path d="M13.71 19.65l22.49 -13.54 22.17 13.21 -0.22 12.56 -11.03 6.55 10.81 6.44 0.22 12.23 -22.38 13.54 -21.97 -13.57 -0.08 -37.43zm22.36 -1.34l-11.74 6.96 0 25.85 11.77 7.07 12.04 -7.21 -12.09 -7.18 0.04 -11.08 11.9 -7.36 -11.91 -7.06z"/>
+     </clipPath>
+ </defs>
+ <g id="Katman_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2531937052144">
+   <rect class="fil0" x="-0" y="0" width="72.07" height="76.75" rx="18.07" ry="18.07"/>
+   <g>
+    <path class="fil1" d="M13.71 19.65l22.49 -13.54 22.17 13.21 -0.22 12.56 -11.03 6.55 10.81 6.44 0.22 12.23 -22.38 13.54 -21.97 -13.57 -0.08 -37.43zm22.36 -1.34l-11.74 6.96 0 25.85 11.77 7.07 12.04 -7.21 -12.09 -7.18 0.04 -11.08 11.9 -7.36 -11.91 -7.06z"/>
+    <g style="clip-path:url(#id0)">
+     <g>
+      <path id="_1" class="fil2" d="M36.2 70.38l0 -12.25 -0.1 0.06 -11.77 -7.07 -0 -25.85 11.74 -6.96 0.13 0.08 0 -12.27 -22.49 13.54 0.08 37.43 21.97 13.57 0.44 -0.26zm0 -26.48l0 -11.25 -0.11 0.07 -0.04 11.08 0.16 0.09z"/>
+      <polygon class="fil2" points="58.15,31.88 47.98,25.36 58.37,19.32 "/>
+      <polygon class="fil2" points="36.93,44.33 47.12,38.43 36.74,32.31 36.08,32.72 36.04,43.8 "/>
+      <polygon class="fil2" points="57.83,57.29 48.06,51.03 48.14,50.98 48.06,50.93 57.93,45.19 58.15,57.1 "/>
+     </g>
+    </g>
+    <path class="fil3 str0" d="M13.71 19.65l22.49 -13.54 22.17 13.21 -0.22 12.56 -11.03 6.55 10.81 6.44 0.22 12.23 -22.38 13.54 -21.97 -13.57 -0.08 -37.43zm22.36 -1.34l-11.74 6.96 0 25.85 11.77 7.07 12.04 -7.21 -12.09 -7.18 0.04 -11.08 11.9 -7.36 -11.91 -7.06z"/>
+   </g>
+  </g>
+ </g>
+</svg>
