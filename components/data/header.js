@@ -91,7 +91,9 @@ export const header = {
                 to: '/auth/yeni-uyelik',
                 ico: 'auto',
                 dropdown: false
-            }
+            },
+            'DIVIDE',
+            'THEME_TOGGLE',
         ]
     }
 }

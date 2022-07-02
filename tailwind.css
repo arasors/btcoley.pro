@@ -4,6 +4,7 @@
 @tailwind screens;
 @tailwind variants;
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 /***/
 .primary-border {
@@ -40,7 +41,16 @@
     @apply border-y border-solid;
     @apply border-light-secondary dark:border-dark-secondary;
 }
-
+/***/
+.primary-divide-x {
+    @apply divide-x divide-solid;
+    @apply divide-light-secondary dark:divide-dark-secondary;
+}
+.primary-divide-y {
+    @apply divide-y divide-solid;
+    @apply divide-light-secondary dark:divide-dark-secondary;
+}
+/***/
 .primary-background {
     @apply bg-light text-light-text;
     @apply dark:bg-dark-primary dark:text-dark-text;
@@ -71,11 +81,17 @@ main {
     @apply w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col;
     @apply primary-background;
 }
-
+hr#separate{
+    @apply border-light-secondary dark:border-light/40
+}
 /***/
 nav#desktop {
     @apply hidden md:flex;
     @apply flex-row flex-nowrap justify-between overflow-hidden whitespace-nowrap;
+}
+
+nav#desktop #toggle-theme{
+    @apply ml-2
 }
 
 nav#mobile {
@@ -84,7 +100,7 @@ nav#mobile {
 }
 
 nav#mobile #open-menu {
-    @apply flex flex-col w-screen gap-y-2 primary-background;
+    @apply flex flex-col w-screen gap-y-2 primary-background z-50;
     @apply fixed left-0 bottom-0;
     @apply px-4 py-4;
     @apply transition-all ease-linear translate-y-full;
@@ -117,6 +133,7 @@ nav #right {
     @apply flex flex-row p-1
 }
 
+/***/
 footer {
     @apply flex justify-between w-screen px-3 py-2 items-center h-8;
     @apply primary-background;
@@ -128,8 +145,8 @@ footer #logo {
 
 button.nav-link {
     @apply opacity-90 mx-1 font-normal transition-all ease-in-out;
-    @apply text-light-text border-light-text;
-    @apply dark:text-dark-text dark:border-dark-text/50;
+    @apply text-light-text border-light-secondary;
+    @apply dark:text-dark-text dark:border-dark-secondary;
     @apply hover:opacity-100 hover:text-primary hover:border-primary;
 }
 
@@ -258,7 +275,6 @@ div#search form#search-form{
     @apply py-2;
     @apply flex items-center rounded-none;
     @apply primary-background border-none;
-    box-shadow: none;
 }
 div#search form#search-form input#search-input{
     @apply primary-background primary-border text-sm;
@@ -283,3 +299,58 @@ div#search form#search-form button#favorites span{
 div#search form#search-form button#favorites.active span{
     @apply text-warning
 }
+/***/
+div#market{
+
+}
+div#market .market-title{
+    @apply primary-background
+}
+div#market .market-title .pair,
+div#market .market-title .price,
+div#market .market-title .percentage{
+    @apply normal-case text-xs text-opacity-100
+}
+
+div#market .market-item,
+div#market .market-title{
+    @apply flex items-center justify-between;
+    @apply text-xs;
+}
+div#market .market-item .pair,
+div#market .market-title .pair{
+    @apply basis-1/3 flex gap-0.5 items-center
+}
+div#market .market-item .pair .title{
+    @apply pt-0.5;
+}
+div#market .market-item .pair .ico{
+    @apply -translate-x-0.5 scale-110;
+    @apply transition-all ease-in-out text-base;
+    @apply hover:text-warning;
+}
+div#market .market-item .pair.favorite .ico{
+    @apply text-warning;
+}
+
+div#market .market-item .price,
+div#market .market-title .price{
+    @apply basis-1/3 overflow-ellipsis whitespace-nowrap text-ellipsis
+}
+div#market .market-item .percentage,
+div#market .market-title .percentage{
+    @apply basis-1/3
+}
+
+div#market .market-item .pair,
+div#market .market-item .price,
+div#market .market-item .percentage,
+div#market .market-title .pair,
+div#market .market-title .price,
+div#market .market-title .percentage
+{
+    @apply pl-1 first:pl-0;
+    @apply text-light-text text-opacity-80 hover:text-opacity-100;
+    @apply dark:text-dark-text dark:text-opacity-80 dark:hover:text-opacity-100;
+}
+

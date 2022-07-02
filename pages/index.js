@@ -1,13 +1,14 @@
 import {Component} from "react"
+import {connect} from "react-redux";
 import {useRouter} from 'next/router'
 import cx from "classnames";
 
 import Home from "./home";
 import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
-import {connect} from "react-redux";
-import {SocketContext} from "../components/socket/market";
-import {store, updateSite} from "../components/context";
+import {SocketContext} from "components/socket/market";
+import {store, updateSite} from "components/context";
+import {themeClassExits} from "components/functions";
 
 class Main extends Component{
     constructor(props) {
@@ -18,11 +19,13 @@ class Main extends Component{
 
     }
 
-    componentDidMount() {
-        if(this.props.site.theme!=='light'){
-            document.documentElement.classList.add('dark');
-        }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        themeClassExits(this.props.site.theme);
+    }
 
+    componentDidMount() {
+
+        themeClassExits(this.props.site.theme);
 
         this.props.socket.on("message", d => {
             store.dispatch(updateSite({

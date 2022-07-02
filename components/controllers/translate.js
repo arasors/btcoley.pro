@@ -1,6 +1,6 @@
 import {turkish,english} from "../data/translate"
 
-export const useTranslate = (word,language = "turkish") => {
+export default function Translate(word,language = "turkish"){
     let file = Object(turkish);
 
     switch (language){
