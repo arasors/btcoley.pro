@@ -579,6 +579,8 @@ module.exports = {
       min: 'min-content',
       max: 'max-content',
       fit: 'fit-content',
+      "screen-center": 'calc(100vh-6rem)',
+      "screen-center-content": 'calc(100vh-10rem)',
     }),
     inset: ({ theme }) => ({
       auto: 'auto',
@@ -683,6 +685,7 @@ module.exports = {
     }),
     minHeight: {
       0: '0px',
+      16: '4rem',
       '96': '24rem',
       '101': '31rem',
       full: '100%',

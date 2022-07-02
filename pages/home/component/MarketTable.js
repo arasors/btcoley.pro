@@ -32,11 +32,11 @@ class MarketTable extends Component {
 
     }
 
-    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
-        if (nextProps.order !== this.state.market) {
-            this.setState({market: nextProps.order});
-        }
-    }
+    // UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
+    //     if (nextProps.market !== this.state.market) {
+    //         this.setState({market: nextProps.market});
+    //     }
+    // }
 
     /***/
 
@@ -110,15 +110,22 @@ class MarketTable extends Component {
                         <div className="price">{Translate('market_table_fiyat')}</div>
                     </Button>
 
-                    {}
-                    <Button className='market-item'>
-                        <div className="pair">
-                            <TiStar className={'ico'} />
-                            <span className="title">BTC/ETH</span>
-                        </div>
-                        <div className="percentage">5.87%</div>
-                        <div className="price">232.235.121,545</div>
-                    </Button>
+                    {this.props.market && Object.entries(this.props.market).filter((t) => JSON.stringify(t).includes(this.state.search)).map((item,key) => {
+                        let pair = item[0],
+                            itemPrice = item[1] || {ask: 0, low: 0, high: 0},
+                            changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2);
+                        return(
+                            <Button key={key} className='market-item'>
+                                <div className="pair">
+                                    <TiStar className={'ico'} />
+                                    <span className="title">{pair}</span>
+                                </div>
+                                <div className="percentage">{changePercentage}%</div>
+                                <div className="price">{itemPrice.ask || "0,00"}</div>
+                            </Button>
+                        )
+                    })}
+
 
 
                 </ButtonGroup>
@@ -132,7 +139,7 @@ class MarketTable extends Component {
 const mapStateToProps = state => {
     return {
         site: state.site,
-        order: state.order
+        market: state.market
     };
 };
 export default connect(mapStateToProps)(MarketTable);

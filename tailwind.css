@@ -78,11 +78,38 @@ html, body, * {
 }
 
 main {
-    @apply w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col;
+    @apply w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col justify-start;
     @apply primary-background;
 }
+/***/
 hr#separate{
     @apply border-light-secondary dark:border-light/40
+}
+.scrollbar-st{
+    -webkit-overflow-scrolling: touch;
+}
+.scrollbar-st::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0.3);
+    @apply bg-[#F9FAFB] dark:bg-[#111827];
+}
+
+.scrollbar-st::-webkit-scrollbar
+{
+    width: 2px;
+    height: 2px;
+    @apply dark:bg-[#111827] bg-[#eee];
+}
+.scrollbar-st.sc-hide::-webkit-scrollbar
+{
+    width: 0px;
+    height: 0px;
+    @apply dark:bg-[#111827] bg-[#eee];
+}
+
+.scrollbar-st::-webkit-scrollbar-thumb
+{
+    @apply dark:bg-[#27313f] bg-[#eee];
 }
 /***/
 nav#desktop {
@@ -243,17 +270,17 @@ button.nav-link {
 }
 /***/
 section#home{
-    @apply flex flex-col h-full;
+    @apply flex flex-col h-screen-center;
 }
 section#home section#ticker{
-    @apply flex h-16 primary-border-bottom;
+    @apply flex h-16 min-h-16 primary-border-bottom;
 
 }
 section#home section#advanced{
-    @apply flex flex-row h-full
+    @apply flex flex-row h-screen-center-content
 }
 section#market-table{
-    @apply primary-border-right h-full flex-advanced;
+    @apply primary-border-right h-full md:flex-advanced flex-auto;
     @apply flex flex-col;
 }
 
@@ -301,7 +328,7 @@ div#search form#search-form button#favorites.active span{
 }
 /***/
 div#market{
-
+    @apply overflow-x-hidden overflow-y-auto h-full scrollbar-st;
 }
 div#market .market-title{
     @apply primary-background
