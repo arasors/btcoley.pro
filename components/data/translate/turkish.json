@@ -8,5 +8,10 @@
   "navbar_kripto_cek": "Kripto Çek",
   "navbar_tl_cek": "TL Çek",
   "navbar_giris_yap": "ÜYE GİRİŞİ",
-  "navbar_yeni_uyelik": "YENİ ÜYELİK"
+  "navbar_yeni_uyelik": "YENİ ÜYELİK",
+  "market_table_arama": "Aramaya başla...",
+  "market_table_arama_reset": "Aramayı temizle",
+  "market_table_favorileri_goster": "Favorileri Göster",
+  "market_table_favorileri_gizle": "Favorileri Gizle",
+  "market_table_favoriler": "Favoriler"
 }

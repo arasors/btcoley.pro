@@ -10,7 +10,7 @@ function MyApp({Component, pageProps}) {
     return (
         <Provider store={store}>
             <SocketContext.Provider value={socket}>
-                <Component {...pageProps}  />
+                <Component {...pageProps} socket={socket}  />
             </SocketContext.Provider>
         </Provider>
     )

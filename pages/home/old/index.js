@@ -33,7 +33,6 @@ class  Home extends Component{
 
     componentDidMount(){
         this.props.socket.on("message", d => {
-            // d.currencies
             store.dispatch(updateSite({
                 ...this.props.context,
                 currencies: d.currencies

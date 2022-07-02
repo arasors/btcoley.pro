@@ -50,6 +50,7 @@ module.exports = {
       error: '#F20000',
       success: '#1ED760',
       white: '#fff',
+      warning: '#e3a008',
       primary: '#0695FF',
       light: '#F1F5F9',
       'light-secondary': '#EEEEEE',
@@ -332,6 +333,7 @@ module.exports = {
     },
     flex: {
       1: '1 1 0%',
+      advanced: '0 0 18.75rem',
       auto: '1 1 auto',
       initial: '0 1 auto',
       none: 'none',

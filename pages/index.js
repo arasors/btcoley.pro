@@ -7,6 +7,7 @@ import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
 import {connect} from "react-redux";
 import {SocketContext} from "../components/socket/market";
+import {store, updateSite} from "../components/context";
 
 class Main extends Component{
     constructor(props) {
@@ -21,6 +22,14 @@ class Main extends Component{
         if(this.props.site.theme!=='light'){
             document.documentElement.classList.add('dark');
         }
+
+
+        this.props.socket.on("message", d => {
+            store.dispatch(updateSite({
+                ...this.props.site,
+                currencies: d.currencies
+            }));
+        });
     }
 
 

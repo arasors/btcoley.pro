@@ -15,9 +15,7 @@ export const header = {
     },
     grids: {
         left: [
-            'LOGO'
-        ],
-        center: [
+            'LOGO',
             {
                 auth: false,
                 text: 'navbar_gelismis_al_sat',
@@ -32,6 +30,8 @@ export const header = {
                 ico: 'auto',
                 dropdown: false
             }
+        ],
+        center: [
         ],
         right: [
             {

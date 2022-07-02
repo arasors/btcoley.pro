@@ -117,18 +117,6 @@ nav #right {
     @apply flex flex-row p-1
 }
 
-nav #left {
-
-}
-
-nav#desktop #center {
-    @apply flex-auto
-}
-
-nav#desktop #right {
-    @apply flex-auto
-}
-
 footer {
     @apply flex justify-between w-screen px-3 py-2 items-center h-8;
     @apply primary-background;
@@ -248,13 +236,50 @@ section#home section#advanced{
     @apply flex flex-row h-full
 }
 section#market-table{
-    @apply primary-border-right h-full basis-1/5;
+    @apply primary-border-right h-full flex-advanced;
     @apply flex flex-col;
 }
 
 section#market-table #tab{
-    @apply primary-background-reverse rounded-none
+    @apply bg-transparent rounded-none;
 }
 section#market-table #tab button{
-    @apply flex-1
+    @apply flex-1 rounded-none;
+    @apply text-light-text;
+    @apply dark:text-dark-text;
+    @apply bg-primary/20 hover:bg-primary/30;
+    @apply transition-all ease-in-out;
+}
+section#market-table #tab button.Mui-selected{
+    @apply bg-primary/70;
+}
+
+div#search form#search-form{
+    @apply py-2;
+    @apply flex items-center rounded-none;
+    @apply primary-background border-none;
+    box-shadow: none;
+}
+div#search form#search-form input#search-input{
+    @apply primary-background primary-border text-sm;
+    @apply focus:ring-0 focus:dark:ring-dark-secondary
+}
+div#search form#search-form button#search-reset{
+    @apply primary-background primary-border rounded-none
+}
+div#search form#search-form button#search-reset .ico{
+    @apply text-xl
+}
+div#search form#search-form button#favorites{
+    @apply primary-background primary-border rounded-none;
+    @apply flex items-center justify-center gap-x-1
+}
+div#search form#search-form button#favorites .ico{
+    @apply text-xl hover:text-warning transition-all text-warning
+}
+div#search form#search-form button#favorites span{
+    @apply text-xs flex items-center pt-0.5 pr-0.5
+}
+div#search form#search-form button#favorites.active span{
+    @apply text-warning
 }
