@@ -14,6 +14,7 @@ import {Translate} from "components/controllers";
 import cx from "classnames"
 import {RiCloseFill} from "@react-icons/all-files/ri/RiCloseFill";
 import {TiStar} from "@react-icons/all-files/ti/TiStar";
+import SonucBulunamadi from "components/liblary/component/SonucBulunamadi";
 
 
 class MarketTable extends Component {
@@ -22,10 +23,8 @@ class MarketTable extends Component {
     }
 
     state = {
-        tab: "TRY",
         search: "",
-        showFavorites: false,
-        market: []
+        showFavorites: false
     }
 
     componentDidMount() {
@@ -42,7 +41,6 @@ class MarketTable extends Component {
     handleShowFavorites = () => {
         this.setState(state => ({showFavorites: !state.showFavorites}));
     }
-
     handleUpdatePair = (e) => {
         store.dispatch(updateSite({
             ...this.props.site,
@@ -52,8 +50,8 @@ class MarketTable extends Component {
             }
         }));
     }
-
     handleUpdateTab = (e) => {
+        if(this.props.site?.current?.tab===e) return false;
         store.dispatch(updateSite({
             ...this.props.site,
             current: {
@@ -62,9 +60,6 @@ class MarketTable extends Component {
             }
         }));
     }
-
-
-
     handleUpdateFavorite = (e) => {
         let checkExits = this.props.site.user?.favorites && this.props.site.user.favorites.includes(e);
         if(checkExits===true){
@@ -75,8 +70,8 @@ class MarketTable extends Component {
                     favorites: this.props.site.user.favorites.filter(item => item !== e)
                 }
             }));
+            return true;
         }
-
         store.dispatch(updateSite({
             ...this.props.site,
             user: {
@@ -87,6 +82,17 @@ class MarketTable extends Component {
                 ]
             }
         }));
+    }
+
+    market = () => {
+        return Object.entries(this.props.market).filter(
+            (t) => {
+                if(!JSON.stringify(t).toUpperCase().includes(this.state.search.toUpperCase())) return false;
+                if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
+                if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
+                return true;
+            }
+        )
     }
 
     render() {
@@ -150,14 +156,7 @@ class MarketTable extends Component {
                     </Button>
 
                     {this.props.market &&
-                        Object.entries(this.props.market).filter(
-                            (t) => {
-                                if(!JSON.stringify(t).toUpperCase().includes(this.state.search.toUpperCase())) return false;
-                                if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
-                                if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
-                                return true;
-                            }
-                        )
+                        this.market()
                             .map((item,key) => {
                         let pair = item[0],
                             itemPrice = item[1] || {ask: 0, low: 0, high: 0},
@@ -174,14 +173,14 @@ class MarketTable extends Component {
                                     <TiStar className="ico" onClick={() => this.handleUpdateFavorite(pair)} />
                                     <span className="title" onClick={() => this.handleUpdatePair(pair)}>{pair}</span>
                                 </div>
-                                <div className="percentage" onClick={() => this.handleUpdatePair(pair)}>{changePercentage}%</div>
+                                <div className="percentage" onClick={() => this.handleUpdatePair(pair)}>{isNaN(changePercentage) ? 0 : changePercentage}%</div>
                                 <div className="price" onClick={() => this.handleUpdatePair(pair)}>{itemPrice.ask || "0,00"}</div>
                             </Button>
                         )
                     })}
-
-
-
+                    {(!this.props.market || this.market().length===0) && (
+                        <SonucBulunamadi />
+                    )}
                 </ButtonGroup>
 
 

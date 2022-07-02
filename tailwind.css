@@ -71,7 +71,13 @@
 .custom-justify-end {
     @apply justify-end
 }
-
+/***/
+div#sonuc-bulunamadi{
+    @apply w-full p-4 text-base select-none flex gap-2 bg-dark-secondary-text dark:bg-dark-secondary/80 text-gray-400 rounded mt-2 justify-center items-center
+}
+div#sonuc-bulunamadi .ico{
+     @apply text-xl
+}
 /***/
 html, body, * {
     @apply font-rubik;
