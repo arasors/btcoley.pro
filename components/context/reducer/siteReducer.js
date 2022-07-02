@@ -3,7 +3,12 @@ const initialState = {
     language: 'TR',
     currencies: {},
     user: {
-        isLogin: false
+        isLogin: false,
+        favorites: []
+    },
+    current: {
+        pair: 'BTC/TRY',
+        tab: 'TRY'
     }
 };
 

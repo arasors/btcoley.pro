@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {connect} from "components/context";
+import {connect, store, updateSite} from "components/context";
 import {
     Paper,
     ToggleButton,
@@ -11,6 +11,7 @@ import {
     Button
 } from "@mui/material";
 import {Translate} from "components/controllers";
+import cx from "classnames"
 import {RiCloseFill} from "@react-icons/all-files/ri/RiCloseFill";
 import {TiStar} from "@react-icons/all-files/ti/TiStar";
 
@@ -50,17 +51,63 @@ class MarketTable extends Component {
         this.setState(state => ({showFavorites: !state.showFavorites}));
     }
 
+    handleUpdatePair = (e) => {
+        store.dispatch(updateSite({
+            ...this.props.site,
+            current: {
+                ...this.props.site.current,
+                pair: e
+            }
+        }));
+    }
+
+    handleUpdateTab = (e) => {
+        store.dispatch(updateSite({
+            ...this.props.site,
+            current: {
+                ...this.props.site.current,
+                tab: e
+            }
+        }));
+    }
+
+
+
+    handleUpdateFavorite = (e) => {
+        let checkExits = this.props.site.user?.favorites && this.props.site.user.favorites.includes(e);
+        if(checkExits===true){
+            store.dispatch(updateSite({
+                ...this.props.site,
+                user: {
+                    ...this.props.user,
+                    favorites: this.props.site.user.favorites.filter(item => item !== e)
+                }
+            }));
+        }
+
+        store.dispatch(updateSite({
+            ...this.props.site,
+            user: {
+                ...this.props.user,
+                favorites: [
+                    ...this.props.site.user.favorites,
+                    e
+                ]
+            }
+        }));
+    }
+
     render() {
         return (
             <section id="market-table">
                 <ToggleButtonGroup
-                    value={this.state.tab}
+                    value={this.props.site.current?.tab || 'TRY'}
                     id="tab"
-                    onChange={(e) => this.setState({tab: e.target.value})}
+                    onChange={(e) => this.handleUpdateTab(e.target.value)}
                     aria-label="outlined button group">
                     <ToggleButton value="TRY">TRY</ToggleButton>
                     <ToggleButton value="USDT">USDT</ToggleButton>
-                    <ToggleButton value="HEPSİ">HEPSİ</ToggleButton>
+                    <ToggleButton value="HEPSİ">{Translate('market_table_tab_hepsi')}</ToggleButton>
                 </ToggleButtonGroup>
 
                 <div id="search">
@@ -110,18 +157,33 @@ class MarketTable extends Component {
                         <div className="price">{Translate('market_table_fiyat')}</div>
                     </Button>
 
-                    {this.props.market && Object.entries(this.props.market).filter((t) => JSON.stringify(t).includes(this.state.search)).map((item,key) => {
+                    {this.props.market &&
+                        Object.entries(this.props.market).filter(
+                            (t) => {
+                                if(!JSON.stringify(t).includes(this.state.search)) return false;
+                                if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
+                                if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
+                                return true;
+                            }
+                        )
+                            .map((item,key) => {
                         let pair = item[0],
                             itemPrice = item[1] || {ask: 0, low: 0, high: 0},
-                            changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2);
+                            changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2),
+                            isCurrent = this.props.site.current?.pair===pair,
+                            isFavorite = this.props.site.user?.favorites && this.props.site.user?.favorites.includes(pair);
                         return(
-                            <Button key={key} className='market-item'>
+                            <Button key={key} className={cx({
+                                'market-item group': true,
+                                'active': isCurrent,
+                                'favorite': isFavorite
+                            })}>
                                 <div className="pair">
-                                    <TiStar className={'ico'} />
-                                    <span className="title">{pair}</span>
+                                    <TiStar className="ico" onClick={() => this.handleUpdateFavorite(pair)} />
+                                    <span className="title" onClick={() => this.handleUpdatePair(pair)}>{pair}</span>
                                 </div>
-                                <div className="percentage">{changePercentage}%</div>
-                                <div className="price">{itemPrice.ask || "0,00"}</div>
+                                <div className="percentage" onClick={() => this.handleUpdatePair(pair)}>{changePercentage}%</div>
+                                <div className="price" onClick={() => this.handleUpdatePair(pair)}>{itemPrice.ask || "0,00"}</div>
                             </Button>
                         )
                     })}

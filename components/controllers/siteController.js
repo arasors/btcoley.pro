@@ -1,5 +1,4 @@
-import {store,toggleTheme} from "components/context"
-import {connect} from "../context";
+import {store, toggleTheme} from "components/context"
 
 export const switchTheme = () => {
     store.dispatch(toggleTheme());
@@ -10,10 +9,3 @@ export const setTheme = (props) => {
         theme: props.payload
     });
 }
-
-const mapStateToProps = state => {
-    return {
-        site: state.site,
-    };
-};
-export default connect(mapStateToProps);

@@ -54,10 +54,12 @@ module.exports = {
       primary: '#0695FF',
       light: '#F1F5F9',
       'light-secondary': '#DDD',
+      'light-selected':'#ABCBEC',
       'light-text': '#161730',
       'dark-primary': '#161730',
       'dark-text': '#FFFFFF',
       'dark-secondary': '#212246',
+      'dark-selected': '#163665',
       'dark-secondary-text': '#5A7E9A',
     }),
     columns: {

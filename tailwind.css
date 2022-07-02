@@ -331,7 +331,7 @@ div#market{
     @apply overflow-x-hidden overflow-y-auto h-full scrollbar-st;
 }
 div#market .market-title{
-    @apply primary-background
+    @apply primary-background sticky top-0 z-10;
 }
 div#market .market-title .pair,
 div#market .market-title .price,
@@ -343,6 +343,9 @@ div#market .market-item,
 div#market .market-title{
     @apply flex items-center justify-between;
     @apply text-xs;
+}
+div#market .market-item.active{
+    @apply bg-light-selected dark:bg-dark-selected
 }
 div#market .market-item .pair,
 div#market .market-title .pair{
@@ -356,7 +359,7 @@ div#market .market-item .pair .ico{
     @apply transition-all ease-in-out text-base;
     @apply hover:text-warning;
 }
-div#market .market-item .pair.favorite .ico{
+div#market .market-item.favorite .pair .ico{
     @apply text-warning;
 }
 
@@ -377,7 +380,7 @@ div#market .market-title .price,
 div#market .market-title .percentage
 {
     @apply pl-1 first:pl-0;
-    @apply text-light-text text-opacity-80 hover:text-opacity-100;
-    @apply dark:text-dark-text dark:text-opacity-80 dark:hover:text-opacity-100;
+    @apply text-light-text text-opacity-80 group-hover:text-opacity-100;
+    @apply dark:text-dark-text dark:text-opacity-80 dark:group-hover:text-opacity-100 dark:group-hover:text-warning;
 }
 
