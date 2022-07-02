@@ -299,7 +299,7 @@ section#market-table #tab button.Mui-selected{
 }
 
 div#search form#search-form{
-    @apply py-2;
+    @apply py-1;
     @apply flex items-center rounded-none;
     @apply primary-background border-none;
 }

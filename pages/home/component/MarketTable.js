@@ -28,18 +28,10 @@ class MarketTable extends Component {
         market: []
     }
 
-    /***/
     componentDidMount() {
 
     }
 
-    // UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
-    //     if (nextProps.market !== this.state.market) {
-    //         this.setState({market: nextProps.market});
-    //     }
-    // }
-
-    /***/
 
     handleSearchChange = e => {
         this.setState({search: e.target.value})
@@ -160,7 +152,7 @@ class MarketTable extends Component {
                     {this.props.market &&
                         Object.entries(this.props.market).filter(
                             (t) => {
-                                if(!JSON.stringify(t).includes(this.state.search)) return false;
+                                if(!JSON.stringify(t).toUpperCase().includes(this.state.search.toUpperCase())) return false;
                                 if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
                                 if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
                                 return true;
