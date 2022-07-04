@@ -103,8 +103,9 @@ class MarketTable extends Component {
                     id="tab"
                     onChange={(e) => this.handleUpdateTab(e.target.value)}
                     aria-label="outlined button group">
-                    <ToggleButton value="TRY">TRY</ToggleButton>
-                    <ToggleButton value="USDT">USDT</ToggleButton>
+                    {this.props.site.filters.pairs && this.props.site.filters.pairs.map((tab,key) => {
+                        return <ToggleButton key={key} value={tab.name}>{tab.name}</ToggleButton>
+                    })}
                     <ToggleButton value="HEPSİ">{Translate('market_table_tab_hepsi')}</ToggleButton>
                 </ToggleButtonGroup>
 

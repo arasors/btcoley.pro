@@ -30,7 +30,8 @@ class Main extends Component{
         this.props.socket.on("message", d => {
             store.dispatch(updateSite({
                 ...this.props.site,
-                currencies: d.currencies
+                currencies: d.currencies,
+                filters: d.filters
             }));
         });
     }

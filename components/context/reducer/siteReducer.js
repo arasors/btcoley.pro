@@ -2,6 +2,7 @@ const initialState = {
     theme: 'dark',
     language: 'TR',
     currencies: {},
+    filters: {},
     user: {
         isLogin: false,
         favorites: []
