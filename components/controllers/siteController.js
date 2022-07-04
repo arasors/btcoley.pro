@@ -23,6 +23,17 @@ export function GetCurrentCurrency({ret}){
     return Object(data)[ret];
 }
 
+export function GetCurrentPrices({type,data}){
+
+    const pair = useSelector(state => state.site.current.pair);
+
+    const orders = useSelector(state => state.order);
+    const order = () => {
+        let filter = Object.entries(orders).filter((item) => item[0] === pair);
+        return filter.length>0 && filter[0].length>0 && filter[0][1];
+    }
+    return Object(Object(order()[type || 'ask'])[0])[data || 'px'];
+}
 export function GetBuySellFark(props){
     const orders = useSelector(state => state.order);
     const order = () => {

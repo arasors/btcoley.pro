@@ -84,7 +84,7 @@ html, body, * {
 }
 
 main {
-    @apply w-screen h-screen overflow-x-hidden overflow-y-auto flex-1 flex flex-col justify-start;
+    @apply w-screen h-screen overflow-x-hidden overflow-y-auto md:flex-1 flex flex-col justify-start;
     @apply primary-background;
 }
 /***/
@@ -128,8 +128,8 @@ nav#desktop #toggle-theme{
 }
 
 nav#mobile {
-    @apply flex md:hidden;
-    @apply flex-col flex-nowrap justify-between overflow-hidden whitespace-nowrap
+    @apply flex md:hidden w-full h-16 sticky top-0;
+    @apply flex-col flex-nowrap whitespace-nowrap
 }
 
 nav#mobile #open-menu {
@@ -276,18 +276,28 @@ button.nav-link {
 }
 /***/
 section#home{
-    @apply flex flex-col h-screen-center;
+    @apply flex flex-col md:h-screen-center h-fit;
 }
+/***/
 section#home section#ticker{
     @apply flex h-16 min-h-16 primary-border-bottom;
-
 }
+section#ticker .item{
+    @apply flex flex-col justify-center items-center;
+    @apply px-2 py-1;
+    @apply primary-border;
+}
+section#ticker .item span{
+    @apply flex-1 flex items-center
+}
+/***/
 section#home section#advanced{
-    @apply flex flex-row h-screen-center-content
+    @apply flex flex-col md:flex-row md:h-screen-center-content
 }
+/***/
 section#market-table{
     @apply primary-border-right h-full md:flex-advanced flex-auto;
-    @apply flex flex-col;
+    @apply md:flex hidden flex-col;
 }
 section#market-table #tab{
     @apply bg-transparent rounded-none;
@@ -393,9 +403,9 @@ section#centre #tab-wrapper{
     @apply flex justify-between items-center;
     @apply bg-light-secondary dark:bg-dark-secondary;
 }
-section#centre #fark{
-    @apply flex justify-between items-center gap-1;
-    @apply text-sm px-3 pt-1 pb-0.5 rounded-lg;
+section#centre div#fark{
+    @apply md:flex hidden justify-between items-center gap-1;
+    @apply text-sm px-3 pt-1 pb-0.5 rounded-lg select-none;
     /*@apply primary-background;*/
 }
 
@@ -414,12 +424,12 @@ section#centre #tab button.Mui-selected{
 }
 /***/
 section#chart{
-    @apply flex-1 h-centre-top
+    @apply flex-1 md:h-centre-top
 }
 /***/
 section#orders{
     @apply primary-border-top flex-1;
-    @apply flex relative;
+    @apply flex md:flex-row flex-col relative;
     @apply h-centre-bottom max-h-centre-bottom;
 }
 
@@ -449,7 +459,7 @@ section#orders div#order{
 
 section#orders #buys div#order .order-item,
 section#orders #buys div#order .order-title{
-    @apply flex flex-row-reverse items-center justify-between;
+    @apply flex md:flex-row-reverse items-center justify-between;
     @apply text-xs;
 }
 
@@ -467,7 +477,7 @@ section#orders div#order .order-item.active{
 section#orders #buys div#order .order-item .total,
 section#orders #buys div#order .order-title .total{
     @apply basis-1/3;
-    @apply text-left;
+    @apply md:text-left text-right;
 }
 section#orders #sells div#order .order-item .total,
 section#orders #sells div#order .order-title .total{
@@ -482,7 +492,7 @@ section#orders div#order .order-item .total .title{
 
 section#orders #buys div#order .order-item .price,
 section#orders #buys div#order .order-title .price{
-    @apply text-right text-success;
+    @apply md:text-right text-left text-success;
 }
 section#orders #sells div#order .order-item .price,
 section#orders #sells div#order .order-title .price{
@@ -496,7 +506,7 @@ section#orders div#order .order-title .price{
 }
 section#orders div#order .order-item .amount,
 section#orders div#order .order-title .amount{
-    @apply basis-1/3
+    @apply basis-1/3;
 }
 section#orders div#order .order-item .total,
 section#orders div#order .order-item .price,

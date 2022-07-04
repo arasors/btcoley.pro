@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React,{Component} from "react";
 import {connect, store, updateSite} from "components/context";
 import {
     Paper,
@@ -132,7 +132,7 @@ class MarketTable extends Component {
                             </Tooltip>
                         )}
                         <Tooltip
-                            title={Translate(this.state.showFavorites ? 'market_table_favorileri_gizle' : 'market_table_favorileri_goster')}>
+                            title={Translate(this.state.showFavorites ? 'market_table_favorileri_gizle' : 'market_table_favorileri_goster')} anchorEl>
                             <IconButton type="button" id="favorites" onClick={this.handleShowFavorites}
                                         className={this.state.showFavorites ? 'active' : ''}>
                                 <TiStar className={'ico'}/>
@@ -164,20 +164,7 @@ class MarketTable extends Component {
                             changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2),
                             isCurrent = this.props.site.current?.pair===pair,
                             isFavorite = this.props.site.user?.favorites && this.props.site.user?.favorites.includes(pair);
-                        return(
-                            <Button key={key} className={cx({
-                                'market-item group': true,
-                                'active': isCurrent,
-                                'favorite': isFavorite
-                            })}>
-                                <div className="pair">
-                                    <TiStar className="ico" onClick={() => this.handleUpdateFavorite(pair)} />
-                                    <span className="title" onClick={() => this.handleUpdatePair(pair)}>{pair}</span>
-                                </div>
-                                <div className="percentage" onClick={() => this.handleUpdatePair(pair)}>{isNaN(changePercentage) ? 0 : changePercentage}%</div>
-                                <div className="price" onClick={() => this.handleUpdatePair(pair)}>{itemPrice.ask || "0,00"}</div>
-                            </Button>
-                        )
+                        return <MarketItem key={key} isCurrent={isCurrent} isFavorite={isFavorite} pair={pair} changePercentage={changePercentage} itemPrice={itemPrice} handleUpdateFavorite={this.handleUpdateFavorite} handleUpdatePair={this.handleUpdatePair} />
                     })}
                     {(!this.props.market || this.market().length===0) && (
                         <SonucBulunamadi />
@@ -189,6 +176,25 @@ class MarketTable extends Component {
         )
     }
 }
+
+
+const MarketItem = React.memo(function MarketItem({isCurrent,isFavorite,pair,changePercentage,itemPrice,handleUpdateFavorite,handleUpdatePair}){
+    return (
+        <Button className={cx({
+            'market-item group': true,
+            'active': isCurrent,
+            'favorite': isFavorite
+        })}>
+            <div className="pair">
+                <TiStar className="ico" onClick={() => handleUpdateFavorite(pair)} />
+                <span className="title" onClick={() => handleUpdatePair(pair)}>{pair}</span>
+            </div>
+            <div className="percentage" onClick={() => handleUpdatePair(pair)}>{isNaN(changePercentage) ? 0 : changePercentage}%</div>
+            <div className="price" onClick={() => handleUpdatePair(pair)}>{itemPrice.ask || "0,00"}</div>
+        </Button>
+    )
+})
+
 
 const mapStateToProps = state => {
     return {

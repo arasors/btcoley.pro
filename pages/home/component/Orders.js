@@ -1,4 +1,4 @@
-import React,{Component, useRef, useEffect} from "react";
+import React,{Component, useRef, useEffect, memo} from "react";
 import {connect, store, updateSite} from "components/context";
 import autoAnimate from "@formkit/auto-animate";
 import {
@@ -15,6 +15,7 @@ import {GetCurrentCurrency, Translate} from "components/controllers";
 import cx from "classnames"
 import SonucBulunamadi from "components/liblary/component/SonucBulunamadi";
 import {useAutoAnimate} from "@formkit/auto-animate/react";
+import {useSelector} from "react-redux";
 
 
 class Orders extends Component {
@@ -40,22 +41,26 @@ class Orders extends Component {
         return (
             <section id="orders">
                 <div id="buys">
-                    <Order {...this.props} orderType="bid" />
+                    <Order orderType="bid" />
                 </div>
                 <div id="sells">
-                    <Order {...this.props} orderType="ask" />
+                    <Order orderType="ask" />
                 </div>
             </section>
         )
     }
 }
 
-function Order(props){
+// eslint-disable-next-line react/display-name
+const Order = memo(function Order({orderType}) {
 
     // const orderRef = useRef(null);
 
+    const order = useSelector(state => state.order),
+          site  = useSelector(state => state.site);
+
     const orders = () => {
-        let filter = Object.entries(props.order).filter((item) => item[0] === props.site.current.pair);
+        let filter = Object.entries(order).filter((item) => item[0] === site.current.pair);
         return filter.length>0 && filter[0].length>0 && filter[0][1];
     }
 
@@ -73,28 +78,33 @@ function Order(props){
                 <div className="total">{Translate('orders_toplam')} (<GetCurrentCurrency ret="sell" />)</div>
             </Button>
 
-            {(props.order && orders()[props.orderType]) &&
-                orders()[props.orderType]
+            {(order && orders()[orderType]) &&
+                orders()[orderType]
                     .map((item, key) => {
                         let price = item.px,
                             total = item.total,
                             amount = item.qty;
-                        return (
-                            <Button key={key} className={cx({
-                                'order-item group': true,
-                            })}>
-                                <div className="price">{price || "0,00"}</div>
-                                <div className="amount">{amount || "0,00"}</div>
-                                <div className="total">{total || "0,00"}</div>
-                            </Button>
-                        )
+                        return <OrderItem key={key} price={price} amount={amount} total={total} />
                     })}
-            {(!props.order || orders().length === 0) && (
+            {(!order || orders().length === 0) && (
                 <SonucBulunamadi/>
             )}
         </ButtonGroup>
     )
-}
+});
+
+
+const OrderItem = memo(function OrderItem({price, amount, total}) {
+    return (
+        <Button className={cx({
+            'order-item group': true,
+        })}>
+            <div className="price">{price || "0,00"}</div>
+            <div className="amount">{amount || "0,00"}</div>
+            <div className="total">{total || "0,00"}</div>
+        </Button>
+    )
+})
 
 
 const mapStateToProps = state => {
