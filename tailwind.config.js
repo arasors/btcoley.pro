@@ -583,6 +583,8 @@ module.exports = {
       fit: 'fit-content',
       "screen-center": 'calc(100vh-6rem)',
       "screen-center-content": 'calc(100vh-10rem)',
+      "centre-top": "60%",
+      "centre-bottom": "calc(40%-2rem)"
     }),
     inset: ({ theme }) => ({
       auto: 'auto',
@@ -663,6 +665,7 @@ module.exports = {
       min: 'min-content',
       max: 'max-content',
       fit: 'fit-content',
+      "centre-bottom": "calc(40%-2rem)"
     }),
     maxWidth: ({ theme, breakpoints }) => ({
       none: 'none',

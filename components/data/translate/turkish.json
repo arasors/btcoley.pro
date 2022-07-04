@@ -22,5 +22,12 @@
   "market_table_tab_hepsi": "HEPSİ",
   "sonuc_bulunamadi": "Sonuç bulunamadı",
   "buysell_form_al": "AL",
-  "buysell_form_sat": "SAT"
+  "buysell_form_sat": "SAT",
+  "centre_tabs_orders": "EMİR DEFTERİ",
+  "centre_tabs_emirler": "EMİRLERİM",
+  "orders_toplam": "Toplam",
+  "orders_miktar": "Miktar",
+  "orders_fiyat": "Fiyat",
+  "orders_alis_emirleri": "Alış Emirleri",
+  "orders_satis_emirleri": "Satış Emirleri"
 }

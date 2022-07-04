@@ -2,6 +2,7 @@ import {Component} from "react";
 import MarketTable from "./component/MarketTable";
 import Ticker from "./component/Ticker";
 import BuySellForm from "./component/BuySellForm";
+import Centre from "./Centre";
 
 export default class Home extends Component{
 
@@ -19,7 +20,7 @@ export default class Home extends Component{
                 <Ticker />
                 <section id="advanced">
                     <MarketTable />
-                    <section className={'grow'}></section>
+                    <Centre />
                     <BuySellForm />
                 </section>
             </section>
