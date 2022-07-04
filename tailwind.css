@@ -275,19 +275,54 @@ button.nav-link {
     cursor: pointer;
 }
 /***/
+#select-pair{
+    @apply fixed top-0 left-0 w-screen h-screen z-50 p-3;
+    @apply bg-light/70 text-light-text;
+    @apply dark:bg-dark-primary/70 dark:text-dark-text;
+}
+#select-pair .select-pair{
+    @apply flex flex-wrap gap-0.5 items-center justify-center;
+    @apply container mx-auto h-full;
+    @apply bg-light/70 text-light-text;
+    @apply dark:bg-dark-secondary/70 dark:text-dark-text;
+}
+#select-pair .select-pair span{
+    @apply flex-1 basis-[49%];
+    @apply text-center cursor-pointer select-none;
+    @apply primary-border;
+    @apply primary-background-reverse rounded-lg;
+    @apply scale-100 hover:scale-95 transition-all
+}
+
+/***/
 section#home{
     @apply flex flex-col md:h-screen-center h-fit;
 }
+
 /***/
 section#home section#ticker{
     @apply flex h-16 min-h-16 primary-border-bottom;
 }
-section#ticker .item{
-    @apply flex flex-col justify-center items-center;
+
+
+section#ticker div#pair{
+    @apply flex-advanced;
+    @apply primary-border;
+    @apply cursor-pointer transition-all ease-in-out;
+    @apply flex items-center justify-center;
+    @apply bg-light hover:bg-light-secondary;
+    @apply dark:bg-dark-primary dark:hover:bg-dark-secondary;
+}
+
+section#ticker div#items{
+    @apply flex-1 flex items-center h-full
+}
+section#ticker div#items .item{
+    @apply flex flex-col justify-center items-center flex-1 h-full;
     @apply px-2 py-1;
     @apply primary-border;
 }
-section#ticker .item span{
+section#ticker div#items .item span{
     @apply flex-1 flex items-center
 }
 /***/
