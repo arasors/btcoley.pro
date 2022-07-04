@@ -54,9 +54,6 @@ class Orders extends Component {
                     >
 
                         <Button className='order-title' disabled>
-                            <div className="full-title">{Translate('orders_alis_emirleri')}</div>
-                        </Button>
-                        <Button className='order-title' disabled>
                             <div className="price">{Translate('orders_fiyat')}</div>
                             <div className="amount">{Translate('orders_miktar')}</div>
                             <div className="total">{Translate('orders_toplam')}</div>
@@ -91,9 +88,6 @@ class Orders extends Component {
                         id="order"
                     >
 
-                        <Button className='order-title' disabled>
-                            <div className="full-title">{Translate('orders_satis_emirleri')}</div>
-                        </Button>
                         <Button className='order-title' disabled>
                             <div className="price">{Translate('orders_fiyat')}</div>
                             <div className="amount">{Translate('orders_miktar')}</div>
