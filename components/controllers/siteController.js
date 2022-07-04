@@ -23,16 +23,25 @@ export function GetCurrentCurrency({ret}){
     return Object(data)[ret];
 }
 
-export function GetCurrentPrices({type,data}){
+export function GetCurrentPrices({type,data,ch = "order"}){
 
     const pair = useSelector(state => state.site.current.pair);
-
     const orders = useSelector(state => state.order);
+    const markets = useSelector(state => state.market);
+
     const order = () => {
         let filter = Object.entries(orders).filter((item) => item[0] === pair);
         return filter.length>0 && filter[0].length>0 && filter[0][1];
     }
+    const market = () => {
+        let filter = Object.entries(markets).filter((item) => item[0] === pair);
+        return filter[1];
+    }
+    // TODO: MARKET VERİSİNİ SEÇEMİYOR
+    // console.log(markets)
+    if(ch==="market") return Object(market())[type || 'ask'];
     return Object(Object(order()[type || 'ask'])[0])[data || 'px'];
+
 }
 export function GetBuySellFark(props){
     const orders = useSelector(state => state.order);

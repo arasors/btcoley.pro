@@ -31,5 +31,6 @@
   "orders_alis_emirleri": "Alış Emirleri",
   "orders_satis_emirleri": "Satış Emirleri",
   "orders_alis_satis_farki": "Alış-Satış Farkı",
-  "ticker_son_fiyat": "Son Fiyat"
+  "ticker_son_fiyat": "Son Fiyat",
+  "ticker_24saat_hacim": "24 Saat Hacim"
 }

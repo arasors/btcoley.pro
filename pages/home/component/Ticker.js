@@ -31,6 +31,15 @@ class Ticker extends Component{
                             <GetCurrentPrices type={'ask'} data={'px'} />
                         </span>
                     </div>
+
+                    <div className="item">
+                        <span>{Translate('ticker_24saat_hacim')}</span>
+                        <span>
+                            <GetCurrentPrices type="volume" ch="market" />
+                        </span>
+                    </div>
+
+
                 </div>
 
             </section>
