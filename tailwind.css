@@ -387,6 +387,19 @@ div#market .market-title .percentage
 }
 /***/
 section#buy-sell{
-    @apply primary-border-right h-full md:flex-advanced flex-auto;
+    @apply primary-border-left h-full md:flex-advanced flex-auto;
     @apply flex flex-col;
+}
+section#buy-sell #tab{
+    @apply bg-transparent rounded-none;
+}
+section#buy-sell #tab button{
+    @apply flex-1 rounded-none;
+    @apply text-light-text;
+    @apply dark:text-dark-text;
+    @apply bg-primary/20 hover:bg-primary/30;
+    @apply transition-all ease-in-out;
+}
+section#buy-sell #tab button.Mui-selected{
+    @apply bg-primary/70;
 }

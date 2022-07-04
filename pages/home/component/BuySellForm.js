@@ -23,8 +23,7 @@ class BuySellForm extends Component {
     }
 
     state = {
-        search: "",
-        showFavorites: false
+        tab: "AL"
     }
 
     componentDidMount() {
@@ -32,74 +31,25 @@ class BuySellForm extends Component {
     }
 
 
-    handleSearchChange = e => {
-        this.setState({search: e.target.value})
-    }
-    handleSearchReset = e => {
-        this.setState({search: ""})
-    }
-    handleShowFavorites = () => {
-        this.setState(state => ({showFavorites: !state.showFavorites}));
-    }
-    handleUpdatePair = (e) => {
-        store.dispatch(updateSite({
-            ...this.props.site,
-            current: {
-                ...this.props.site.current,
-                pair: e
-            }
-        }));
-    }
+
     handleUpdateTab = (e) => {
-        if(this.props.site?.current?.tab===e) return false;
-        store.dispatch(updateSite({
-            ...this.props.site,
-            current: {
-                ...this.props.site.current,
-                tab: e
-            }
-        }));
-    }
-    handleUpdateFavorite = (e) => {
-        let checkExits = this.props.site.user?.favorites && this.props.site.user.favorites.includes(e);
-        if(checkExits===true){
-            store.dispatch(updateSite({
-                ...this.props.site,
-                user: {
-                    ...this.props.user,
-                    favorites: this.props.site.user.favorites.filter(item => item !== e)
-                }
-            }));
-            return true;
-        }
-        store.dispatch(updateSite({
-            ...this.props.site,
-            user: {
-                ...this.props.user,
-                favorites: [
-                    ...this.props.site.user.favorites,
-                    e
-                ]
-            }
-        }));
+        if(this.state.tab===e) return false;
+        this.setState({tab: e});
     }
 
-    market = () => {
-        return Object.entries(this.props.market).filter(
-            (t) => {
-                if(!JSON.stringify(t).toUpperCase().includes(this.state.search.toUpperCase())) return false;
-                if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
-                if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
-                return true;
-            }
-        )
-    }
 
     render() {
         return (
             <section id="buy-sell">
+                <ToggleButtonGroup
+                    value={this.state.tab || 'AL'}
+                    id="tab"
+                    onChange={(e) => this.handleUpdateTab(e.target.value)}
+                    aria-label="outlined button group">
+                    <ToggleButton value="AL">{Translate('buysell_form_al')}</ToggleButton>
+                    <ToggleButton value="SAT">{Translate('buysell_form_sat')}</ToggleButton>
+                </ToggleButtonGroup>
 
-                
 
 
             </section>

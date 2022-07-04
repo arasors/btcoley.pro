@@ -20,5 +20,7 @@
   "market_table_fiyat": "Fiyat",
   "market_table_degisim": "Değişim",
   "market_table_tab_hepsi": "HEPSİ",
-  "sonuc_bulunamadi": "Sonuç bulunamadı"
+  "sonuc_bulunamadi": "Sonuç bulunamadı",
+  "buysell_form_al": "AL",
+  "buysell_form_sat": "SAT"
 }
