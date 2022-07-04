@@ -449,14 +449,23 @@ section#orders div#order .order-title{
     @apply text-xs;
 }
 
-
 section#orders div#order .order-item.active{
     @apply bg-light-selected dark:bg-dark-selected
 }
-section#orders div#order .order-item .total,
-section#orders div#order .order-title .total{
-    @apply basis-1/3
+
+
+section#orders #buys div#order .order-item .total,
+section#orders #buys div#order .order-title .total{
+    @apply basis-1/3;
+    @apply text-left;
 }
+section#orders #sells div#order .order-item .total,
+section#orders #sells div#order .order-title .total{
+    @apply basis-1/3;
+    @apply text-right;
+}
+
+
 section#orders div#order .order-item .total .title{
     @apply pt-0.5;
 }
