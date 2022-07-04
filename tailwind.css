@@ -389,8 +389,18 @@ div#market .market-title .percentage
 section#centre{
     @apply flex-1 flex-col
 }
-section#centre #tab{
-    @apply bg-transparent rounded-none w-full;
+section#centre #tab-wrapper{
+    @apply flex justify-between items-center;
+    @apply bg-light-secondary dark:bg-dark-secondary;
+}
+section#centre #fark{
+    @apply flex justify-between items-center gap-1;
+    @apply text-sm px-3 pt-1 pb-0.5 rounded-lg;
+    /*@apply primary-background;*/
+}
+
+section#centre #tab-wrapper #tab{
+    @apply bg-transparent rounded-none;
 }
 section#centre #tab button{
     @apply flex-1 rounded-none;

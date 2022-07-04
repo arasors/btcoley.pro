@@ -1,4 +1,4 @@
-export {connect} from "react-redux";
+export {connect, useSelector} from "react-redux";
 export {store, wrapper} from "./store";
 
 export {toggleTheme, updateSite} from "./actions/siteAction"
