@@ -1,6 +1,7 @@
 import {Component} from "react";
+import {connect} from "../../../components/context";
 
-export default class Ticker extends Component{
+class Ticker extends Component{
     constructor(props) {
         super(props);
     }
@@ -17,3 +18,11 @@ export default class Ticker extends Component{
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        site: state.site,
+        market: state.market
+    };
+};
+export default connect(mapStateToProps)(Ticker);

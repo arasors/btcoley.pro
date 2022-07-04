@@ -289,7 +289,6 @@ section#market-table{
     @apply primary-border-right h-full md:flex-advanced flex-auto;
     @apply flex flex-col;
 }
-
 section#market-table #tab{
     @apply bg-transparent rounded-none;
 }
@@ -303,7 +302,6 @@ section#market-table #tab button{
 section#market-table #tab button.Mui-selected{
     @apply bg-primary/70;
 }
-
 div#search form#search-form{
     @apply py-1;
     @apply flex items-center rounded-none;
@@ -368,7 +366,6 @@ div#market .market-item .pair .ico{
 div#market .market-item.favorite .pair .ico{
     @apply text-warning;
 }
-
 div#market .market-item .price,
 div#market .market-title .price{
     @apply basis-1/3 overflow-ellipsis whitespace-nowrap text-ellipsis
@@ -377,7 +374,6 @@ div#market .market-item .percentage,
 div#market .market-title .percentage{
     @apply basis-1/3
 }
-
 div#market .market-item .pair,
 div#market .market-item .price,
 div#market .market-item .percentage,
@@ -389,4 +385,8 @@ div#market .market-title .percentage
     @apply text-light-text text-opacity-80 group-hover:text-opacity-100;
     @apply dark:text-dark-text dark:text-opacity-80 dark:group-hover:text-opacity-100 dark:group-hover:text-warning;
 }
-
+/***/
+section#buy-sell{
+    @apply primary-border-right h-full md:flex-advanced flex-auto;
+    @apply flex flex-col;
+}
