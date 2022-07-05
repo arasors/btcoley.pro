@@ -12,7 +12,7 @@ const Header = memo((props) => {
     const [state, setState] = useState({menu: false});
     
     return (
-        <>
+        <Fragment>
             <nav id="desktop">
                 {header.grids && Object.entries(header.grids).map((headerItem, headerKey) => {
                     if (Object(header.settings)[headerItem[0]].visible === false) return false;
@@ -122,7 +122,7 @@ const Header = memo((props) => {
                     })}
                 </div>
             </nav>
-        </>
+        </Fragment>
     )
 
 })

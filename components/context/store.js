@@ -16,7 +16,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
     key: "context",
     storage,
-    blacklist: ["ui","market"]
+    blacklist: []
 };
 // middleware
 const middleware = [thunk];
