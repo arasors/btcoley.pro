@@ -314,15 +314,19 @@ section#ticker div#pair{
     @apply dark:bg-dark-primary dark:hover:bg-dark-secondary;
 }
 
-section#ticker div#items{
-    @apply flex-1 flex items-center h-full
+section#ticker #items{
+    @apply flex-1 flex items-center h-full py-0
 }
-section#ticker div#items .item{
+section#ticker #items .item{
     @apply flex flex-col justify-center items-center flex-1 h-full;
-    @apply px-2 py-1;
+    @apply p-0;
     @apply primary-border;
 }
-section#ticker div#items .item span{
+section#ticker #items .item .item-button{
+    @apply flex flex-col justify-center items-center flex-1 w-full h-full;
+    @apply px-2 py-1;
+}
+section#ticker #items .item span{
     @apply flex-1 flex items-center
 }
 /***/
