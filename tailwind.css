@@ -279,7 +279,7 @@ section#home{
 }
 
 /***/
-section#home section#ticker{
+section#ticker{
     @apply flex h-16 min-h-16 primary-border-bottom select-none;
 }
 /***/
@@ -313,7 +313,7 @@ section#ticker #items .item span{
     @apply flex-1 flex items-center
 }
 /***/
-section#home section#advanced{
+section#advanced{
     @apply flex flex-col md:flex-row md:h-screen-center-content
 }
 /***/
