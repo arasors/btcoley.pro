@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08cc351d-f918-4c10-9747-2fe35f270e74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/liblary/Loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/market/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/build-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/liblary/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/Centre.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/Centre.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/component/BuySellForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/BuySellForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/component/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Chart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/component/MarketTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/MarketTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/component/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/component/Ticker.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Ticker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +81,7 @@
       <recent name="C:\btcOley\btc.pro.next\components\context\actions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\btcOley\btc.pro.next\pages\market" />
       <recent name="C:\btcOley\btc.pro.next\pages\home\old" />
       <recent name="C:\btcOley\btc.pro.next" />
       <recent name="C:\btcOley\btc.pro.next\public" />

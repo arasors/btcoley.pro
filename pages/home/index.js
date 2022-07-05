@@ -1,10 +1,6 @@
-import React,{Component, memo} from "react";
-import MarketTable from "./component/MarketTable";
-import Ticker from "./component/Ticker";
-import BuySellForm from "./component/BuySellForm";
-import Centre from "./Centre";
+import React, {Component, memo} from "react";
 
-class Home extends Component{
+class Market extends Component{
 
     constructor(props) {
         super(props);
@@ -16,17 +12,12 @@ class Home extends Component{
 
     render() {
         return(
-            <section id="home">
-                <Ticker />
-                <section id="advanced">
-                    <MarketTable />
-                    <Centre />
-                    <BuySellForm />
-                </section>
+            <section id="home" className="hero-section">
+                ANASAYFA
             </section>
         )
     }
 
 }
 
-export default memo(Home);
+export default memo(Market);

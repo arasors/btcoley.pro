@@ -1,18 +1,20 @@
-import React,{useEffect, memo} from "react"
+import React,{useEffect, memo, useState} from "react"
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
 import cx from "classnames";
 
-import Home from "./home";
 import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
 import {store, updateSite} from "components/context";
 import {themeClassExits} from "components/functions";
+import {Loader} from "components/liblary";
+
+import Market from "./market";
+import Home from "./home";
+
 
 
 const Main = memo(function Main(props){
-
-    const routes = useRouter().asPath;
 
     useEffect(() => {
 
@@ -27,20 +29,31 @@ const Main = memo(function Main(props){
         themeClassExits(props.site.theme);
     }, [props]);
 
+    const routePath = useRouter().asPath;
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        setLoaded(false);
+        setTimeout(() => {
+            setLoaded(true);
+        },300);
+    }, [routePath]);
+
 
     const RoutePage = memo(function RoutePage({path}){
        switch (path){
-           case 'pro':
-               <Home />
+           case '/pro':
+               return <Market />;
 
-           default: <Home />;
+           default: return <Home />;
        }
     });
 
     return (
         <main>
             <Header/>
-                <Home />
+                {!loaded && <Loader />}
+                <RoutePage path={routePath} />
             <Footer/>
         </main>
     )

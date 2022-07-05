@@ -87,6 +87,12 @@ main {
     @apply w-screen h-screen overflow-x-hidden overflow-y-auto md:flex-1 flex flex-col justify-start;
     @apply primary-background;
 }
+#loader-1{
+    @apply fixed z-100 ;
+    @apply w-screen h-screen;
+    @apply flex items-center justify-center flex-wrap p-5 gap-1;
+    @apply primary-background;
+}
 /***/
 hr#separate{
     @apply border-light-secondary dark:border-light/40
@@ -274,7 +280,10 @@ button.nav-link {
 .btn1:hover {
     cursor: pointer;
 }
-section#home{
+
+section.hero-section,
+section#home,
+section#market{
     @apply flex flex-col md:h-screen-center h-fit z-10;
 }
 
