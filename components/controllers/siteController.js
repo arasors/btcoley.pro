@@ -28,16 +28,26 @@ export const GetCurrentCurrency = memo(function GetCurrentCurrency({ret}){
     }
 )
 
-export const GetCurrentPrices = memo(function GetCurrentPrices({type = false,data = false,ch = "order",calc = false, decimal = 2}){
+export const GetCurrentPrices = memo(function GetCurrentPrices({type = false,data = false,ch = "order",calc = false, decimal = false}){
 
-    const pair = useSelector(state => state.site.current.pair);
+    const site = useSelector(state => state.site),
+          pair = site.current.pair;
     const orders = useSelector(state => state.order);
     const markets = useSelector(state => state.market);
+
+
+
+    const currencies = useMemo(function () {
+        let filter = Object.entries(site.currencies).filter((item) => item[0] === pair);
+        return filter.length>0 && filter[0].length>0 && filter[0][1];
+    },[site,pair]);
+
 
     const order = useMemo(function () {
         let filter = Object.entries(orders).filter((item) => item[0] === pair);
         return filter.length>0 && filter[0].length>0 && filter[0][1];
     },[orders,pair]);
+
     const market = useMemo(function () {
         let filter = Object.entries(markets).filter((item) => item[0] === pair);
         return filter.length>0 && filter[0].length>0 && filter[0][1];
@@ -45,13 +55,13 @@ export const GetCurrentPrices = memo(function GetCurrentPrices({type = false,dat
 
     if(calc!==false){
         switch (calc) {
-            case 'ticker_24saat_degisim': return (parseFloat(Object(market)['low'] || 1)/parseFloat(Object(market)['high'] || 1)).toFixed(+decimal) + "%";
+            case 'ticker_24saat_degisim': return (parseFloat(Object(market)['low'] || 1)/parseFloat(Object(market)['high'] || 1)).toFixed(+decimal || currencies.display_decimals) + "%";
         }
     }
-    if(ch==="market") return parseFloat(Object(market)[type || 'ask']).toFixed(+decimal);
+    if(ch==="market") return parseFloat(Object(market)[type || 'ask']).toFixed(+decimal || currencies.display_decimals);
 
     let ret = Object(Object(order[type || 'ask'])[0])[data || 'px'];
-    return isNaN(parseFloat(ret)) ? isNaN(ret) ? "0.0" : ret || 0 : parseFloat(ret).toFixed(+decimal);
+    return isNaN(parseFloat(ret)) ? isNaN(ret) ? "0.0" : ret || 0 : parseFloat(ret).toFixed(+decimal || currencies.display_decimals);
 })
 
 

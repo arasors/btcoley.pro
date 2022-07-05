@@ -1,4 +1,4 @@
-import React,{memo, useState, useCallback} from "react";
+import React,{memo, useState, useCallback,useMemo} from "react";
 import {connect} from "components/context";
 import {Translate, GetCurrentPrices, switchSelectPair} from "components/controllers";
 import TickerData from "components/data/home/ticker";
@@ -10,16 +10,28 @@ const Ticker = memo(function Ticker(props){
 
     const [state, setState] = useState({
         marketDropdown: false,
-        pair: props.site.current.pair
+        pair: props.site.current.pair,
+        currencies: props.site.currencies
     });
 
     const handleSelectPair = useCallback( () => {
-        setState(state => ({marketDropdown: !state.marketDropdown}));
+        setState(({
+            ...state,
+            marketDropdown: !state.marketDropdown
+        }));
     },[state.marketDropdown]);
+
+    const currencies = useMemo(function () {
+        let filter = Object.entries(state.currencies).filter((item) => item[0] === state.pair);
+        return filter.length>0 && filter[0].length>0 && filter[0][1];
+    },[state.currencies, state.pair]);
+
+    // TODO: CURRENCIES TRY GELMİYOR USD GELİYOR
+    // console.log(currencies,state.pair,state.currencies);
 
         return(
             <section id="ticker">
-                <Button variant="text" id="pair" onAnimationEnd={handleSelectPair}>
+                <Button variant="text" id="pair" onClick={() => handleSelectPair()}>
                     <span>{state.pair}</span>
                 </Button>
                 <List id="items">

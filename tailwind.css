@@ -326,10 +326,10 @@ section#market-table.hidden{
     @apply !hidden;
 }
 section#market-table #tab{
-    @apply bg-transparent rounded-none;
+    @apply bg-transparent rounded-none gap-1 mt-1 px-1;
 }
 section#market-table #tab button{
-    @apply flex-1 rounded-none;
+    @apply flex-1 rounded-none h-9 rounded-lg;
     @apply text-light-text;
     @apply dark:text-dark-text;
     @apply bg-primary/20 hover:bg-primary/30;
@@ -436,11 +436,11 @@ section#centre div#fark{
 }
 
 section#centre #tab-wrapper #tab{
-    @apply bg-transparent rounded-none;
+    @apply bg-transparent rounded-none px-1 gap-1;
 }
 section#centre #tab button{
-    @apply flex-1 rounded-none;
-    @apply text-light-text whitespace-nowrap h-8;
+    @apply flex-1 rounded-lg my-0.5;
+    @apply text-light-text whitespace-nowrap h-7;
     @apply dark:text-dark-text;
     @apply bg-primary/20 hover:bg-primary/30;
     @apply transition-all ease-in-out;

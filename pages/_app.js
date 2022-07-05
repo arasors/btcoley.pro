@@ -3,7 +3,7 @@ import '../styles/tailwind.css'
 import '../styles/globals.css'
 import { wrapper, store } from "components/context/store";
 import { Provider } from "react-redux";
-import {SocketContext, socket} from "../components/socket/market";
+import {SocketContext, socket} from "components/socket/socket";
 
 function MyApp({Component, pageProps}) {
 
