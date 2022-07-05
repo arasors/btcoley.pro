@@ -39,6 +39,7 @@ class BuySellForm extends Component {
 
 
     render() {
+
         return (
             <section id="buy-sell">
                 <ToggleButtonGroup
@@ -60,7 +61,7 @@ class BuySellForm extends Component {
 const mapStateToProps = state => {
     return {
         site: state.site,
-        market: state.market
+        // market: state.market
     };
 };
 export default connect(mapStateToProps)(BuySellForm);

@@ -22,10 +22,8 @@ const Main = memo(function Main(props){
             }));
         });
 
-        return () => {
-            themeClassExits(props.site.theme);
-        };
-    }, []);
+        themeClassExits(props.site.theme);
+    }, [props]);
 
 
     return (

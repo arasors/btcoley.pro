@@ -1,4 +1,4 @@
-import React,{Component, useRef, useEffect, memo} from "react";
+import React, {Component, useRef, useEffect, memo, useMemo, useCallback, useState} from "react";
 import {connect, store, updateSite} from "components/context";
 import autoAnimate from "@formkit/auto-animate";
 import {
@@ -14,42 +14,23 @@ import {
 import {GetCurrentCurrency, Translate} from "components/controllers";
 import cx from "classnames"
 import SonucBulunamadi from "components/liblary/component/SonucBulunamadi";
-import {useAutoAnimate} from "@formkit/auto-animate/react";
 import {useSelector} from "react-redux";
 
 
-class Orders extends Component {
-    constructor(props) {
-        super(props);
-    }
+const Orders = memo(function Orders() {
 
-    state = {
-        tab: "AL"
-    }
+    return (
+        <section id="orders">
+            <div id="buys">
+                <Order orderType="bid"/>
+            </div>
+            <div id="sells">
+                <Order orderType="ask"/>
+            </div>
+        </section>
+    )
 
-    componentDidMount() {
-
-    }
-
-
-    handleUpdateTab = (e) => {
-        if (this.state.tab === e) return false;
-        this.setState({tab: e});
-    }
-
-    render() {
-        return (
-            <section id="orders">
-                <div id="buys">
-                    <Order orderType="bid" />
-                </div>
-                <div id="sells">
-                    <Order orderType="ask" />
-                </div>
-            </section>
-        )
-    }
-}
+});
 
 // eslint-disable-next-line react/display-name
 const Order = memo(function Order({orderType}) {
@@ -59,10 +40,11 @@ const Order = memo(function Order({orderType}) {
     const order = useSelector(state => state.order),
           site  = useSelector(state => state.site);
 
-    const orders = () => {
+    const orders = useMemo(() => {
         let filter = Object.entries(order).filter((item) => item[0] === site.current.pair);
         return filter.length>0 && filter[0].length>0 && filter[0][1];
-    }
+    },[order,site.current.pair]);
+
 
     return(
         <ButtonGroup
@@ -78,15 +60,15 @@ const Order = memo(function Order({orderType}) {
                 <div className="total">{Translate('orders_toplam')} (<GetCurrentCurrency ret="sell" />)</div>
             </Button>
 
-            {(order && orders()[orderType]) &&
-                orders()[orderType]
+            {(order && orders[orderType]) &&
+                orders[orderType]
                     .map((item, key) => {
                         let price = item.px,
                             total = item.total,
                             amount = item.qty;
                         return <OrderItem key={key} price={price} amount={amount} total={total} />
                     })}
-            {(!order || orders().length === 0) && (
+            {(!order || orders.length === 0) && (
                 <SonucBulunamadi/>
             )}
         </ButtonGroup>
@@ -107,10 +89,4 @@ const OrderItem = memo(function OrderItem({price, amount, total}) {
 })
 
 
-const mapStateToProps = state => {
-    return {
-        site: state.site,
-        order: state.order
-    };
-};
-export default connect(mapStateToProps)(Orders);
+export default Orders;
