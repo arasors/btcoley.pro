@@ -296,12 +296,12 @@ button.nav-link {
 
 /***/
 section#home{
-    @apply flex flex-col md:h-screen-center h-fit;
+    @apply flex flex-col md:h-screen-center h-fit z-10;
 }
 
 /***/
 section#home section#ticker{
-    @apply flex h-16 min-h-16 primary-border-bottom;
+    @apply flex h-16 min-h-16 primary-border-bottom select-none;
 }
 
 

@@ -32,5 +32,10 @@
   "orders_satis_emirleri": "Satış Emirleri",
   "orders_alis_satis_farki": "Alış-Satış Farkı",
   "ticker_son_fiyat": "Son Fiyat",
-  "ticker_24saat_hacim": "24 Saat Hacim"
+  "ticker_24saat_hacim": "24 Saat Hacim",
+  "ticker_24saat_degisim": "24 Saat Değişim",
+  "ticker_24saat_yuksek" : "24 Saat Yüksek",
+  "ticker_24saat_dusuk" : "24 Saat Düşük",
+  "ticker_en_iyi_alis": "En iyi alış",
+  "ticker_en_iyi_satis": "En iyi satış"
 }
