@@ -1,7 +1,10 @@
-import {store,useSelector, toggleTheme} from "components/context"
+import {store, useSelector, toggleTheme, toggleSelectPair} from "components/context"
 
 export const switchTheme = () => {
     store.dispatch(toggleTheme());
+}
+export const switchSelectPair = () => {
+    store.dispatch(toggleSelectPair());
 }
 export const setTheme = (props) => {
     store.dispatch({

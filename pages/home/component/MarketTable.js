@@ -24,18 +24,23 @@ class MarketTable extends Component {
 
     state = {
         search: "",
-        showFavorites: false
+        showFavorites: false,
+        marketDropdown: this.props.site.current.marketDropdown
     }
 
     componentDidMount() {
 
     }
 
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
+        if(this.state.marketDropdown!==nextProps.site.current.marketDropdown) console.log(nextProps.site.current.marketDropdown);
+    }
+
 
     handleSearchChange = e => {
         this.setState({search: e.target.value})
     }
-    handleSearchReset = e => {
+    handleSearchReset = () => {
         this.setState({search: ""})
     }
     handleShowFavorites = () => {

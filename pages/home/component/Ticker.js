@@ -1,9 +1,9 @@
 import React,{Component} from "react";
 import {connect} from "components/context";
-import {Translate,GetCurrentPrices} from "components/controllers";
-import SelectPair from "./SelectPair";
+import {Translate, GetCurrentPrices, switchSelectPair} from "components/controllers";
 import TickerData from "components/data/home/ticker";
-import {List, ListItem, ListItemButton} from "@mui/material";
+import {Button, List, ListItem, ListItemButton} from "@mui/material";
+import MarketTable from "./MarketTable";
 
 class Ticker extends Component{
     constructor(props) {
@@ -11,21 +11,31 @@ class Ticker extends Component{
     }
 
     state = {
-        selector: false
+        selector: false,
+        marketDropdown: false
+    }
+
+    handleSelectPair = (e) => {
+        // console.log(e,this.props.site.current.marketDropdown);
+        this.setState(state => ({marketDropdown: !state.marketDropdown}))
     }
 
     render() {
         return(
             <section id="ticker">
-                {this.state.selector===true && <SelectPair />}
-                <div id="pair">
+                <Button variant="text" id="pair" onAnimationEnd={() => this.handleSelectPair(!this.props.site.current.marketDropdown)}>
                     <span>{this.props.site.current.pair}</span>
-                </div>
+                </Button>
                 <List id="items">
                     {TickerData && TickerData.map((item,key) => {
                         return <TickerItem item={item} key={key} />
                     })}
                 </List>
+
+
+                {/*<div id="select-pair">*/}
+                {/*    <MarketTable />*/}
+                {/*</div>*/}
             </section>
         )
     }

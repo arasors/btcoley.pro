@@ -1,7 +1,7 @@
 export {connect, useSelector} from "react-redux";
 export {store, wrapper} from "./store";
 
-export {toggleTheme, updateSite} from "./actions/siteAction"
+export {toggleTheme, toggleSelectPair, updateSite} from "./actions/siteAction"
 export {marketAction} from "./actions/marketAction"
 export {orderAction} from "./actions/orderAction"
 

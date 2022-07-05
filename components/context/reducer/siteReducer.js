@@ -9,7 +9,8 @@ const initialState = {
     },
     current: {
         pair: 'BTC/TRY',
-        tab: 'TRY'
+        tab: 'TRY',
+        marketDropdown: false
     }
 };
 

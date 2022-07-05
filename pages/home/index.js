@@ -1,4 +1,4 @@
-import {Component} from "react";
+import React,{Component} from "react";
 import MarketTable from "./component/MarketTable";
 import Ticker from "./component/Ticker";
 import BuySellForm from "./component/BuySellForm";

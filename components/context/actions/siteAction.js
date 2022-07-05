@@ -12,7 +12,15 @@ export function toggleTheme(theme = false){
     }
 
 }
+export function toggleSelectPair(theme = false){
 
+    if(theme===false){
+        return{
+            type: 'TOGGLE_SELECT_PAIR'
+        }
+    }
+
+}
 export function updateSite(payload = false){
     return{
         type: 'UPDATE_SITE',
