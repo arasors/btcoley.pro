@@ -1,30 +1,26 @@
-import React,{Component} from "react";
+import React,{memo, useState, useCallback} from "react";
 import {connect} from "components/context";
 import {Translate, GetCurrentPrices, switchSelectPair} from "components/controllers";
 import TickerData from "components/data/home/ticker";
 import {Button, List, ListItem, ListItemButton} from "@mui/material";
 import MarketTable from "./MarketTable";
 
-class Ticker extends Component{
-    constructor(props) {
-        super(props);
-    }
 
-    state = {
-        selector: false,
-        marketDropdown: false
-    }
+const Ticker = memo(function Ticker(props){
 
-    handleSelectPair = (e) => {
-        // console.log(e,this.props.site.current.marketDropdown);
-        this.setState(state => ({marketDropdown: !state.marketDropdown}))
-    }
+    const [state, setState] = useState({
+        marketDropdown: false,
+        pair: props.site.current.pair
+    });
 
-    render() {
+    const handleSelectPair = useCallback( () => {
+        setState(state => ({marketDropdown: !state.marketDropdown}));
+    },[state.marketDropdown]);
+
         return(
             <section id="ticker">
-                <Button variant="text" id="pair" onAnimationEnd={() => this.handleSelectPair(!this.props.site.current.marketDropdown)}>
-                    <span>{this.props.site.current.pair}</span>
+                <Button variant="text" id="pair" onAnimationEnd={handleSelectPair}>
+                    <span>{state.pair}</span>
                 </Button>
                 <List id="items">
                     {TickerData && TickerData.map((item,key) => {
@@ -38,11 +34,11 @@ class Ticker extends Component{
                 {/*</div>*/}
             </section>
         )
-    }
-}
+
+});
 
 
-const TickerItem = React.memo(function TickerItem({item}){
+const TickerItem = memo(function TickerItem({item}){
     switch (item){
         case "ticker_son_fiyat":
             return (
@@ -129,8 +125,6 @@ const TickerItem = React.memo(function TickerItem({item}){
 const mapStateToProps = state => {
     return {
         site: state.site,
-        market: state.market,
-        order: state.order
     };
 };
 export default connect(mapStateToProps)(Ticker);

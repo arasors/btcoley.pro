@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React, {useState, useCallback, memo, useMemo} from "react";
 import {connect, store, updateSite} from "components/context";
 import {
     Paper,
@@ -17,98 +17,94 @@ import {TiStar} from "@react-icons/all-files/ti/TiStar";
 import SonucBulunamadi from "components/liblary/component/SonucBulunamadi";
 
 
-class MarketTable extends Component {
-    constructor(props) {
-        super(props);
-    }
+const MarketTable = memo(function MarketTable(props){
 
-    state = {
+    const [state, setState] = useState({
         search: "",
         showFavorites: false,
-        marketDropdown: this.props.site.current.marketDropdown
-    }
-
-    componentDidMount() {
-
-    }
-
-    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
-        if(this.state.marketDropdown!==nextProps.site.current.marketDropdown) console.log(nextProps.site.current.marketDropdown);
-    }
+        marketDropdown: props.site.current.marketDropdown
+    });
 
 
-    handleSearchChange = e => {
-        this.setState({search: e.target.value})
+    const handleSearchChange = e => {
+        setState({search: e.target.value})
     }
-    handleSearchReset = () => {
-        this.setState({search: ""})
-    }
-    handleShowFavorites = () => {
-        this.setState(state => ({showFavorites: !state.showFavorites}));
-    }
-    handleUpdatePair = (e) => {
+    const handleSearchReset = useCallback(() => {
+        setState({search: ""})
+    },[]);
+
+    const handleShowFavorites = useCallback(() => {
+        setState(state => ({showFavorites: !state.showFavorites}));
+    },[state.showFavorites]);
+
+    const handleUpdatePair = useCallback((e) => {
         store.dispatch(updateSite({
-            ...this.props.site,
+            ...props.site,
             current: {
-                ...this.props.site.current,
+                ...props.site.current,
                 pair: e
             }
         }));
-    }
-    handleUpdateTab = (e) => {
-        if(this.props.site?.current?.tab===e) return false;
+    },[props.site]);
+
+    const handleUpdateTab = useCallback((e) => {
+        if(props.site?.current?.tab===e) return false;
         store.dispatch(updateSite({
-            ...this.props.site,
+            ...props.site,
             current: {
-                ...this.props.site.current,
+                ...props.site.current,
                 tab: e
             }
         }));
-    }
-    handleUpdateFavorite = (e) => {
-        let checkExits = this.props.site.user?.favorites && this.props.site.user.favorites.includes(e);
+    },[props.site]);
+
+    const handleUpdateFavorite = useCallback((e) => {
+        let checkExits = props.site.user?.favorites && props.site.user.favorites.includes(e);
         if(checkExits===true){
             store.dispatch(updateSite({
-                ...this.props.site,
+                ...props.site,
                 user: {
-                    ...this.props.user,
-                    favorites: this.props.site.user.favorites.filter(item => item !== e)
+                    ...props.user,
+                    favorites: props.site.user.favorites.filter(item => item !== e)
                 }
             }));
             return true;
         }
         store.dispatch(updateSite({
-            ...this.props.site,
+            ...props.site,
             user: {
-                ...this.props.user,
+                ...props.user,
                 favorites: [
-                    ...this.props.site.user.favorites,
+                    ...props.site.user.favorites,
                     e
                 ]
             }
         }));
-    }
+    },[props.site]);
 
-    market = () => {
-        return Object.entries(this.props.market).filter(
+
+    const market = useMemo(() => {
+        return Object.entries(props.market).filter(
             (t) => {
-                if(!JSON.stringify(t).toUpperCase().includes(this.state.search.toUpperCase())) return false;
-                if(this.state.showFavorites && (!this.props.site.user?.favorites || !this.props.site.user?.favorites.includes(t[0]))) return false;
-                if(this.props.site.current.tab!=="HEPSİ" && !t[0].includes(this.props.site.current.tab)) return false;
+                if(!JSON.stringify(t).match(new RegExp(state.search, "i"))) return false;
+                if(state.showFavorites && (!props.site.user?.favorites || !props.site.user?.favorites.includes(t[0]))) return false;
+                if(props.site.current.tab!=="HEPSİ" && !t[0].includes(props.site.current.tab)) return false;
                 return true;
             }
         )
-    }
+    }, [props.market, state.search, state.showFavorites, props.site?.user, props.site?.current.tab]);
 
-    render() {
+
+
+
         return (
             <section id="market-table">
                 <ToggleButtonGroup
-                    value={this.props.site.current?.tab || 'TRY'}
+                    value={props.site.current?.tab || 'TRY'}
                     id="tab"
-                    onChange={(e) => this.handleUpdateTab(e.target.value)}
+                    onChange={(e) => handleUpdateTab(e.target.value)}
                     aria-label="outlined button group">
-                    {this.props.site.filters.pairs && this.props.site.filters.pairs.map((tab,key) => {
+                    {props.site.filters.pairs && props.site.filters.pairs.map((tab,key) => {
                         return <ToggleButton key={key} value={tab.name}>{tab.name}</ToggleButton>
                     })}
                     <ToggleButton value="HEPSİ">{Translate('market_table_tab_hepsi')}</ToggleButton>
@@ -125,21 +121,21 @@ class MarketTable extends Component {
                             placeholder={Translate('market_table_arama')}
                             inputProps={{'aria-label': 'search', 'id': 'search-input'}}
                             autoComplete="off"
-                            value={this.state.search}
-                            onChange={this.handleSearchChange}
+                            value={state.search}
+                            onChange={handleSearchChange}
 
                         />
-                        {this.state.search && (
+                        {state.search && (
                             <Tooltip title={Translate('market_table_arama_reset')}>
-                                <IconButton type="button" id="search-reset" onClick={this.handleSearchReset}>
+                                <IconButton type="button" id="search-reset" onClick={handleSearchReset}>
                                     <RiCloseFill className={'ico'}/>
                                 </IconButton>
                             </Tooltip>
                         )}
                         <Tooltip
-                            title={Translate(this.state.showFavorites ? 'market_table_favorileri_gizle' : 'market_table_favorileri_goster')} anchorEl>
-                            <IconButton type="button" id="favorites" onClick={this.handleShowFavorites}
-                                        className={this.state.showFavorites ? 'active' : ''}>
+                            title={Translate(state.showFavorites ? 'market_table_favorileri_gizle' : 'market_table_favorileri_goster')} anchorEl>
+                            <IconButton type="button" id="favorites" onClick={handleShowFavorites}
+                                        className={state.showFavorites ? 'active' : ''}>
                                 <TiStar className={'ico'}/>
                                 <span>{Translate('market_table_favoriler')}</span>
                             </IconButton>
@@ -161,17 +157,16 @@ class MarketTable extends Component {
                         <div className="price">{Translate('market_table_fiyat')}</div>
                     </Button>
 
-                    {this.props.market &&
-                        this.market()
-                            .map((item,key) => {
-                        let pair = item[0],
-                            itemPrice = item[1] || {ask: 0, low: 0, high: 0},
-                            changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2),
-                            isCurrent = this.props.site.current?.pair===pair,
-                            isFavorite = this.props.site.user?.favorites && this.props.site.user?.favorites.includes(pair);
-                        return <MarketItem key={key} isCurrent={isCurrent} isFavorite={isFavorite} pair={pair} changePercentage={changePercentage} itemPrice={itemPrice} handleUpdateFavorite={this.handleUpdateFavorite} handleUpdatePair={this.handleUpdatePair} />
-                    })}
-                    {(!this.props.market || this.market().length===0) && (
+                    {props.market &&
+                        market.map((item,key) => {
+                                let pair = item[0],
+                                    itemPrice = item[1] || {ask: 0, low: 0, high: 0},
+                                    changePercentage = (Number(itemPrice.low) / Number(itemPrice.high)).toFixed(2),
+                                    isCurrent = props.site.current?.pair===pair,
+                                    isFavorite = props.site.user?.favorites && props.site.user?.favorites.includes(pair);
+                                return <MarketItem key={key} isCurrent={isCurrent} isFavorite={isFavorite} pair={pair} changePercentage={changePercentage} itemPrice={itemPrice} handleUpdateFavorite={handleUpdateFavorite} handleUpdatePair={handleUpdatePair} />
+                            })}
+                    {(!props.market || market.length===0) && (
                         <SonucBulunamadi />
                     )}
                 </ButtonGroup>
@@ -179,11 +174,11 @@ class MarketTable extends Component {
 
             </section>
         )
-    }
-}
+    
+});
 
 
-const MarketItem = React.memo(function MarketItem({isCurrent,isFavorite,pair,changePercentage,itemPrice,handleUpdateFavorite,handleUpdatePair}){
+const MarketItem = memo(function MarketItem({isCurrent,isFavorite,pair,changePercentage,itemPrice,handleUpdateFavorite,handleUpdatePair}){
     return (
         <Button className={cx({
             'market-item group': true,
@@ -198,7 +193,7 @@ const MarketItem = React.memo(function MarketItem({isCurrent,isFavorite,pair,cha
             <div className="price" onClick={() => handleUpdatePair(pair)}>{itemPrice.ask || "0,00"}</div>
         </Button>
     )
-})
+});
 
 
 const mapStateToProps = state => {

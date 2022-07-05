@@ -1,9 +1,11 @@
+import {memo} from "react"
 import cx from "classnames";
 import {connect} from "react-redux";
 import {Logo} from "./component/Logo";
 import {Tooltip} from "@mui/material";
 
-function Footer(props){
+// eslint-disable-next-line react/display-name
+const Footer = memo((props) => {
     return(
         <footer>
             <Logo theme={props.site.theme} />
@@ -15,10 +17,10 @@ function Footer(props){
                 </div>
             </Tooltip>
 
-
         </footer>
     )
-}
+});
+
 const mapStateToProps = state => {
     return {
         site: state.site,

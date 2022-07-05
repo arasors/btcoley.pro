@@ -1,4 +1,4 @@
-import {Component} from "react"
+import React,{useCallback, useEffect, memo} from "react"
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
 import cx from "classnames";
@@ -10,44 +10,33 @@ import {SocketContext} from "components/socket/market";
 import {store, updateSite} from "components/context";
 import {themeClassExits} from "components/functions";
 
-class Main extends Component{
-    constructor(props) {
-        super(props);
-    }
 
-    state = {
+const Main = memo(function Main(props){
 
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        themeClassExits(this.props.site.theme);
-    }
-
-    componentDidMount() {
-
-        themeClassExits(this.props.site.theme);
-
-        this.props.socket.on("message", d => {
+    useEffect(() => {
+        props.socket.on("message", d => {
             store.dispatch(updateSite({
-                ...this.props.site,
+                ...props.site,
                 currencies: d.currencies,
                 filters: d.filters
             }));
         });
-    }
+
+        return () => {
+            themeClassExits(props.site.theme);
+        };
+    }, []);
 
 
-    render() {
+    return (
+        <main>
+            <Header/>
+                <Home />
+            <Footer/>
+        </main>
+    )
+})
 
-        return(
-            <main>
-                <Header />
-                <SocketContext.Consumer>{socket => <Home socket={socket} />}</SocketContext.Consumer>
-                <Footer />
-            </main>
-        )
-    }
-}
 const mapStateToProps = state => {
     return {
         site: state.site,
