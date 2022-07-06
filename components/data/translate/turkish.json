@@ -69,5 +69,6 @@
   "auth_alert_authenticator_kodunu_giriniz":  "6 haneli Authenticator kodunuzu giriniz",
   "auth_alert_authenticator_kodunu_eksik_girdiniz": "Authenticator kodu 6 haneli olmalı",
   "auth_alert_authenticator_kodunu_fazla_girdiniz": "Authenticator kodu 6 haneli olmalı",
-  "auth_alert_giris_basarisiz": "Giriş başarısız, lütfen bilgilerinizi kontrol edin."
+  "auth_alert_giris_basarisiz": "Giriş başarısız, lütfen bilgilerinizi kontrol edin.",
+  "auth_alert_kod_yanlis": "Doğrulama kodu yanlış, lütfen tekrar deneyin."
 }

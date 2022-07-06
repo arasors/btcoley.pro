@@ -64,7 +64,7 @@ const MarketTable = memo(function MarketTable(props){
             store.dispatch(updateSite({
                 ...props.site,
                 user: {
-                    ...props.user,
+                    ...props.site.user,
                     favorites: props.site.user.favorites.filter(item => item !== e)
                 }
             }));
@@ -73,7 +73,7 @@ const MarketTable = memo(function MarketTable(props){
         store.dispatch(updateSite({
             ...props.site,
             user: {
-                ...props.user,
+                ...props.site.user,
                 favorites: [
                     ...props.site.user.favorites,
                     e

@@ -36,6 +36,7 @@ import {
     VisibilityOff
 } from "@mui/icons-material";
 import ReactCodeInput from "react-code-input";
+import {store, updateSite} from "../../components/context";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -198,23 +199,65 @@ const Login = memo(function Login(props) {
             if(values.method==="sms"){
                 const code = values.sms;
                 smsApi(email, phone, country, tckn, tab, code, true).then(ret  => {
+                    const response = ret.data;
 
-                    setState((states) => ({
-                        ...states,
-                        loaded: true
-                    }));
+                    if(response.status===200){
+                        store.dispatch(updateSite({
+                            ...props.site,
+                            user: {
+                                ...props.site.user,
+                                ...response.user,
+                                token: response.access_token,
+                                isLogin: true
+                            }
+                        }));
+                        setState((states) => ({
+                            ...states,
+                            loaded: true,
+                            error: false,
+                            verifyStep: false,
+                            navigate: false
+                        }));
+                    }else{
+                        setState((states) => ({
+                            ...states,
+                            loaded: true,
+                            error: "auth_alert_kod_yanlis"
+                        }));
+                    }
 
-                }).catch(err => setState(states => ({...states, loaded: true})))
+                }).catch(error => setState((states) => ({...states, loaded: true, error: false})))
             }else{
                 const code = values.authenticator;
                 authApi(email, phone, country, tckn, tab, code, true).then(ret  => {
+                    const response = ret.data;
 
-                    setState((states) => ({
-                        ...states,
-                        loaded: true
-                    }));
+                    if(response.status===200){
+                        store.dispatch(updateSite({
+                            ...props.site,
+                            user: {
+                                ...props.site.user,
+                                ...response.user,
+                                token: response.access_token,
+                                isLogin: true
+                            }
+                        }));
+                        setState((states) => ({
+                            ...states,
+                            loaded: true,
+                            error: false,
+                            verifyStep: false,
+                            navigate: false
+                        }));
+                    }else{
+                        setState((states) => ({
+                            ...states,
+                            loaded: true,
+                            error: "auth_alert_kod_yanlis"
+                        }));
+                    }
 
-                }).catch(err => setState(states => ({...states, loaded: true})))
+                }).catch(err => setState(states => ({...states, loaded: true, error: false})))
 
             }
         }

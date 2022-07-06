@@ -8,14 +8,14 @@ async function login(email, password, country, phone, tckn, type) {
     let data;
     if(type==="email" || type==="1"){
         data = {
-            type:type,
+            type: "email",
             email:email,
             password
         }
     }
     if(type==="phone" || type==="2"){
         data = {
-            type:type,
+            type: "phone",
             country: country,
             phone:phone,
             password
@@ -23,7 +23,7 @@ async function login(email, password, country, phone, tckn, type) {
     }
     if(type==="tckn" || type==="3"){
         data = {
-            type:type,
+            type: "tckn",
             tckn: tckn,
             password
         }
@@ -88,7 +88,7 @@ async function smsConfirm(user_email, user_phone, user_country, user_tckn, type,
         data = {
             user_email: user_email,
             code: code,
-            type:type,
+            type: "email",
             login
         }
     }
@@ -96,7 +96,7 @@ async function smsConfirm(user_email, user_phone, user_country, user_tckn, type,
         data = {
             user_country: user_country,
             user_phone: user_phone,
-            type:type,
+            type: "phone",
             code: code,
             login
         }
@@ -105,7 +105,7 @@ async function smsConfirm(user_email, user_phone, user_country, user_tckn, type,
         data = {
             user_tckn: user_tckn,
             code: code,
-            type:type,
+            type: "tckn",
             login
         }
     }
@@ -124,7 +124,7 @@ async function authenticatorConfirm(user_email, phone, country, tckn, type, code
     if(type==="email" || type==="1"){
         data = {
             user_email: user_email,
-            type:type,
+            type: "email",
             twoFACode: code,
             login
         }
@@ -133,7 +133,7 @@ async function authenticatorConfirm(user_email, phone, country, tckn, type, code
         data = {
             user_country: country,
             user_phone: phone,
-            type:type,
+            type: "phone",
             twoFACode: code,
             login
         }
@@ -141,7 +141,7 @@ async function authenticatorConfirm(user_email, phone, country, tckn, type, code
     if(type==="tckn" || type==="3"){
         data = {
             user_tckn: tckn,
-            type:type,
+            type: "tckn",
             twoFACode: code,
             login
         }

@@ -80,6 +80,7 @@ export const header = {
             },
             {
                 auth: false,
+                forLogin: true,
                 text: 'navbar_giris_yap',
                 to: '/auth/giris-yap',
                 ico: 'auto',
@@ -87,11 +88,13 @@ export const header = {
             },
             {
                 auth: false,
+                forLogin: true,
                 text: 'navbar_yeni_uyelik',
                 to: '/auth/yeni-uyelik',
                 ico: 'auto',
                 dropdown: false
             },
+            'USER_PROFILE',
             'DIVIDE',
             'THEME_TOGGLE',
         ]

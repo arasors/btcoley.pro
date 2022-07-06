@@ -72,7 +72,7 @@ const Main = memo(function Main(props){
         <ColorModeContext.Provider value={props.site.theme}>
             <ThemeProvider theme={theme}>
                 <main>
-                    {!routePath.includes("auth") && <Header/>}
+                    <Header/>
                         {!loaded && <Loader />}
                         <RoutePage path={routePath} />
                     {!routePath.includes("auth") && <Footer/>}

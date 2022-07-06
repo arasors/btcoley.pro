@@ -45,6 +45,20 @@ const Header = memo((props) => {
 
                                 if (item.visible === false) return;
                                 if (item.auth === true && (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin)) return;
+                                if (item.forLogin===true && props.site.user.isLogin===true) return;
+
+                                // TODO: ÇIKIŞ YAP LİNK VERİLCEK USER MENÜSÜ HAZIRLANACAK
+
+                                if (item === "USER_PROFILE") {
+                                    return (
+                                        <Link href={`hesabim`} key={key}>
+                                            <Button variant={item.variant || 'outlined'} className={'nav-link'}>
+                                                {props.site?.user?.name}
+                                            </Button>
+                                        </Link>
+                                    )
+                                }
+
                                 if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                     return (
                                         <Link href={`${item.to}`} key={key}>
@@ -103,6 +117,19 @@ const Header = memo((props) => {
 
                                     if (item.visible === false) return;
                                     if (item.auth === true && (props.site.user.isLogin === "undefined" || !props.site.user.isLogin)) return;
+                                    if (item.forLogin===true && props.site.user.isLogin===true) return;
+
+
+                                    if (item === "USER_PROFILE") {
+                                        return (
+                                            <Link href={`hesabim`} key={key}>
+                                                <Button variant={item.variant || 'outlined'} className={'nav-link'}>
+                                                    {props.site?.user?.name}
+                                                </Button>
+                                            </Link>
+                                        )
+                                    }
+
                                     if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                         return (
                                             <Link href={`${item.to}`} key={key}>
