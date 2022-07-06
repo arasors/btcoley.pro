@@ -1,4 +1,4 @@
-import {memo, useEffect, useState} from "react"
+import React,{memo, useEffect, useState} from "react"
 import Link from "next/link";
 import {connect} from "react-redux";
 import {Logo} from "components/liblary";
@@ -13,7 +13,7 @@ import {
     FilledInput,
     FormControl, FormHelperText,
     IconButton,
-    InputAdornment,
+    InputAdornment, InputBase,
     InputLabel,
     OutlinedInput, Tab, Tabs,
     TextField,
@@ -54,25 +54,25 @@ function a11yProps(key) {
 const validationSchema = yup.object({
     tab: yup.string(),
     email: yup.string().when("tab", {
-            is: value => value && value==="1",
+            is: value => (value && value==="1" || value && value===1),
             then: yup
             .string(Translate('auth_alert_email_giriniz'))
                 .email(Translate('auth_alert_gecersiz_email'))
                 .required(Translate('auth_alert_email_bos'))
         }),
     phone: yup.string().when("tab", {
-            is: value => value && value === "2",
+            is: value => (value && value==="2" || value && value===2),
             then: yup
                 .string(Translate('auth_alert_telefon_giriniz'))
                 .matches(new RegExp(PHONE_REGEX, 'g'), Translate('auth_alert_gecersiz_telefon'))
                 .required(Translate('auth_alert_telefon_bos'))
         }),
     tckn: yup.string().when("tab", {
-        is: value => value && value === "3",
+        is: value => (value && value === "3" || value && value === 3),
         then: yup
-            .string(Translate('auth_alert_telefon_giriniz'))
-            .matches(new RegExp(PHONE_REGEX, 'g'), Translate('auth_alert_gecersiz_telefon'))
-            .required(Translate('auth_alert_telefon_bos'))
+            .string(Translate('auth_alert_tckn_giriniz'))
+            .min(11, Translate('auth_alert_gecersiz_tckn'))
+            .required(Translate('auth_alert_tckn_bos'))
     }),
     password: yup
         .string(Translate('auth_alert_sifre_giriniz'))
@@ -101,13 +101,18 @@ const Login = memo(function Login(props) {
             tab: "1"
         },
         validationSchema: validationSchema,
+        // validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
         },
+        setFieldValue: (value) => {
+            console.log(value);
+        }
     });
 
     const handleTabChange = (event, newValue) => {
         setState({...state, tab: newValue});
+        formik.setFieldValue('tab', String(newValue+1));
     };
 
     const handleClickShowPassword = () => {
@@ -151,9 +156,16 @@ const Login = memo(function Login(props) {
 
 
                     <form onSubmit={formik.handleSubmit} id="auth-form">
-                        <input type="hidden" value={String(state.tab+1)} onChange={formik.handleChange} readOnly />
+                        {/*<InputBase*/}
+                        {/*    autoComplete="off"*/}
+                        {/*    value={state.tab}*/}
+                        {/*    onChange={formik.handleChange}*/}
+                        {/*    name="tab"*/}
+                        {/*    id="tab"*/}
+                        {/*/>*/}
+
                         <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                            <Tabs value={state.tab} onChange={handleTabChange} name="tab" id="tab" aria-label="basic tabs example"
+                            <Tabs value={state.tab} onChange={handleTabChange} aria-label="basic tabs example"
                                   variant="scrollable">
                                 <Tab label={Translate('auth_email_adresi_ile_giris')} {...a11yProps(0)} />
                                 <Tab label={Translate('auth_telefon_numarasi_ile_giris')} {...a11yProps(1)} />

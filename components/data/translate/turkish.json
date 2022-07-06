@@ -56,5 +56,8 @@
   "auth_alert_sifreniz_8karakterden_kisa":  "Şifreniz 8 karakterden kısa olamaz",
   "auth_alert_sifre_bos": "Şifre alanı boş olamaz",
   "auth_alert_gecersiz_sifre":  "Şifreniz 1 büyük 1 küçük harf, 1 rakam ve 2 özel karakter içermeli",
-  "auth_alert_gecersiz_telefon": "Telefon numarası geçersiz"
+  "auth_alert_gecersiz_telefon": "Telefon numarası geçersiz",
+  "auth_alert_tckn_giriniz": "Kimlik numaranızı girin",
+  "auth_alert_gecersiz_tckn": "Kimlik numarası geçersiz",
+  "auth_alert_tckn_bos": "Kimlik numarası boş olamaz"
 }

@@ -44,7 +44,7 @@ const Header = memo((props) => {
                                 }
 
                                 if (item.visible === false) return;
-                                if (item.auth === true && (props.site.user.isLogin === "undefined" || !props.site.user.isLogin)) return;
+                                if (item.auth === true && (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin)) return;
                                 if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                     return (
                                         <Link href={`${item.to}`} key={key}>
