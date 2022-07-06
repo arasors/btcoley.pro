@@ -85,9 +85,7 @@ const validationSchema = yup.object({
 const Login = memo(function Login(props) {
 
     const [state, setState] = useState({
-        country: "90",
         showPassword: false,
-        password: "",
         tab: 0
     });
 
@@ -101,12 +99,8 @@ const Login = memo(function Login(props) {
             tab: "1"
         },
         validationSchema: validationSchema,
-        // validationSchema: validationSchema,
         onSubmit: (values) => {
             console.log(values);
-        },
-        setFieldValue: (value) => {
-            console.log(value);
         }
     });
 
@@ -122,21 +116,6 @@ const Login = memo(function Login(props) {
         });
     };
 
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-
-    useEffect(() => {
-        // if (typeof window !== "undefined" && document.getElementById('phone')) {
-        //     // Inputmask({'regex': PHONE_REGEX}).mask(document.querySelector("#phone"));
-        // }
-
-
-
-    }, [state.tab]);
-
-
-    // console.log("renderred");
 
     return (
         <section id="login">
@@ -232,7 +211,6 @@ const Login = memo(function Login(props) {
                                         <IconButton
                                             aria-label="toggle password visibility"
                                             onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
                                             edge="end"
                                         >
                                             {state.showPassword ? <VisibilityOff/> : <Visibility/>}
@@ -257,7 +235,6 @@ const Login = memo(function Login(props) {
 
 
                 <div className="top">
-
                     <div className="head">
 
                     </div>
@@ -270,7 +247,6 @@ const Login = memo(function Login(props) {
                     {/*        </span>*/}
                     {/*    <p dangerouslySetInnerHTML={{__html:Translate('auth_url_info')}}></p>*/}
                     {/*</div>*/}
-
                 </div>
 
 
