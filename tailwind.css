@@ -633,6 +633,9 @@ section#buy-sell #tab button.Mui-selected{
 section#login{
     @apply flex flex-col md:flex-row h-screen;
 }
+div#banner-split{
+    @apply hidden md:flex relative
+}
 div.split{
     @apply flex-1;
     @apply primary-border;
@@ -678,7 +681,12 @@ div.split #logo{
 }
 
 #auth-form{
-    @apply flex flex-col gap-y-8 flex-1
+    @apply flex flex-col gap-y-8 flex-1 relative
+}
+
+#auth-form #submit-form{
+    @apply py-2;
+    @apply absolute bottom-0 left-0;
 }
 
 
@@ -694,5 +702,37 @@ div.split #logo{
     @apply text-center font-light tracking-wide text-lg;
 }
 #url-info .url b{
-    @apply text-success
+    @apply text-success;
+}
+
+#login #step-nav{
+    @apply absolute top-2 z-10 text-xl;
+}
+#login #step-nav.left{
+    @apply left-2;
+}
+#login #step-nav.right{
+    @apply right-5;
+}
+
+.verify-step .reactCodeInput{
+    @apply !flex justify-center items-center w-full;
+}
+.verify-step .reactCodeInput input,
+.verify-step .reactCodeInput input {
+    @apply text-dark-primary dark:text-light text-4xl;
+    @apply w-12 h-12 md:w-20 md:h-20;
+}
+.verify-step .reactCodeInput input::-webkit-outer-spin-button,
+.verify-step .reactCodeInput input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.verify-step .verify-input-title,
+.verify-step .verify-input-text{
+    @apply text-center text-base;
+}
+.verify-step .verify-input-title{
+    @apply py-2 text-lg;
 }

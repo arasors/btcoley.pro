@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08cc351d-f918-4c10-9747-2fe35f270e74" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/data/auth/codeInput.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/controllers/formController.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/controllers/formController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data/translate/turkish.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/translate/turkish.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package.json" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -115,7 +126,7 @@
       <workItem from="1656915912989" duration="24847000" />
       <workItem from="1657003947655" duration="13925000" />
       <workItem from="1657019988379" duration="7687000" />
-      <workItem from="1657090741469" duration="21697000" />
+      <workItem from="1657090741469" duration="32889000" />
     </task>
     <servers />
   </component>

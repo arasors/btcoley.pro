@@ -59,5 +59,15 @@
   "auth_alert_gecersiz_telefon": "Telefon numarası geçersiz",
   "auth_alert_tckn_giriniz": "Kimlik numaranızı girin",
   "auth_alert_gecersiz_tckn": "Kimlik numarası geçersiz",
-  "auth_alert_tckn_bos": "Kimlik numarası boş olamaz"
+  "auth_alert_tckn_bos": "Kimlik numarası boş olamaz",
+  "auth_alert_sms_kodunu_giriniz": "Cep telefonunuza gönderilen sms kodunu girmelisin",
+  "auth_alert_sms_kodunu_eksik_girdiniz": "SMS kodu 5 haneli olmalı",
+  "auth_alert_sms_kodunu_fazla_girdiniz":  "SMS kodu 5 haneli olmalı",
+  "auth_alert_sms_kodu":  "SMS KODUNUZ",
+  "auth_alert_sms_kodunu_tekrar_gonder": "SMS Kodunu yeniden gönder",
+  "auth_alert_authenticator_kodu":  "Authenticator kodunuzu giriniz",
+  "auth_alert_authenticator_kodunu_giriniz":  "6 haneli Authenticator kodunuzu giriniz",
+  "auth_alert_authenticator_kodunu_eksik_girdiniz": "Authenticator kodu 6 haneli olmalı",
+  "auth_alert_authenticator_kodunu_fazla_girdiniz": "Authenticator kodu 6 haneli olmalı",
+  "auth_alert_giris_basarisiz": "Giriş başarısız, lütfen bilgilerinizi kontrol edin."
 }

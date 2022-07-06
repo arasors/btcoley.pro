@@ -1,0 +1,21 @@
+{
+  "className": "reactCodeInput",
+  "inputStyle": {
+    "margin":  "4px",
+    "MozAppearance": "textfield",
+    "borderRadius": "3px",
+    "paddingLeft": "7px",
+    "backgroundColor": "initial",
+    "border": "1px solid lightskyblue",
+    "textAlign": "center"
+  },
+  "inputStyleInvalid": {
+    "margin":  "4px",
+    "MozAppearance": "textfield",
+    "borderRadius": "3px",
+    "paddingLeft": "7px",
+    "backgroundColor": "initial",
+    "border": "1px solid red",
+    "textAlign": "center"
+  }
+}
