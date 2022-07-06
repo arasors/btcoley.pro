@@ -5,6 +5,62 @@
 @tailwind variants;
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+/***/
+@layer base {
+[multiple], [type=date], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], [type=url], [type=week], select, textarea{
+    /*appearance: inherit;*/
+    background-color: inherit;
+    border-color: inherit;
+    border-width: inherit;
+    border-radius: inherit;
+    padding: 16.5px 14px;
+    font-size: initial;
+    line-height: inherit;
+    @apply focus:ring-0;
+}
+    [multiple]:-webkit-autofill,
+    [type=date]:-webkit-autofill,
+    [type=datetime-local]:-webkit-autofill,
+    [type=email]:-webkit-autofill,
+    [type=month]:-webkit-autofill,
+    [type=number]:-webkit-autofill,
+    [type=password]:-webkit-autofill,
+    [type=search]:-webkit-autofill,
+    [type=tel]:-webkit-autofill,
+    [type=text]:-webkit-autofill,
+    [type=time]:-webkit-autofill,
+    [type=url]:-webkit-autofill,
+    [type=week]:-webkit-autofill,
+    select:-webkit-autofill,
+    textarea:-webkit-autofill{
+        -webkit-box-shadow: 0 0 0 100px #F1F5F9 inset;
+        -webkit-text-fill-color: #011627;
+        caret-color: #011627;
+        border-radius: inherit;
+    }
+
+    .dark [multiple]:-webkit-autofill,
+    .dark [type=date]:-webkit-autofill,
+    .dark [type=datetime-local]:-webkit-autofill,
+    .dark [type=email]:-webkit-autofill,
+    .dark [type=month]:-webkit-autofill,
+    .dark [type=number]:-webkit-autofill,
+    .dark [type=password]:-webkit-autofill,
+    .dark [type=search]:-webkit-autofill,
+    .dark [type=tel]:-webkit-autofill,
+    .dark [type=text]:-webkit-autofill,
+    .dark [type=time]:-webkit-autofill,
+    .dark [type=url]:-webkit-autofill,
+    .dark [type=week]:-webkit-autofill,
+    .dark select:-webkit-autofill,
+    .dark textarea:-webkit-autofill{
+        -webkit-box-shadow: 0 0 0 100px #011627 inset;
+        -webkit-text-fill-color: #F1F5F9;
+        caret-color: #F1F5F9;
+        border-radius: 0;
+    }
+
+}
 
 /***/
 .primary-border {
@@ -572,4 +628,71 @@ section#buy-sell #tab button{
 }
 section#buy-sell #tab button.Mui-selected{
     @apply bg-primary/70;
+}
+/***/
+section#login{
+    @apply flex flex-col md:flex-row h-screen;
+}
+div.split{
+    @apply flex-1;
+    @apply primary-border;
+    @apply flex flex-col items-center;
+    @apply p-6 relative overflow-hidden;
+    @apply shadow-xl shadow-dark-primary;
+    @apply bg-light dark:bg-dark-primary;
+    @apply bg-texture-pattern-light dark:bg-texture-pattern-dark;
+    background-size: 10px;
+
+}
+div.split div#wrap{
+    @apply h-full;
+    @apply flex flex-col gap-y-4;
+}
+
+div.split .top{
+    @apply flex flex-col gap-2 items-start
+}
+div.split .top .head{
+    @apply flex gap-0.5 justify-between;
+}
+
+
+div.split #logo{
+    @apply w-[100vh] h-auto object-contain;
+    @apply absolute -left-1/2 top-1/2 -translate-y-1/2 rotate-90;
+}
+#title-bar{
+    @apply py-8;
+    @apply flex flex-col gap-y-4
+}
+
+
+#auth-title{
+    @apply leading-6 mt-6 text-center;
+    @apply font-bold font-rubik
+}
+#auth-title-info{
+    @apply leading-6;
+    @apply text-xl font-light font-rubik text-center mx-auto;
+    @apply w-3/4
+}
+
+#auth-form{
+    @apply flex flex-col gap-y-8 flex-1
+}
+
+
+#url-info{
+    @apply flex flex-col gap-y-2 py-2 font-rubik;
+    @apply text-center font-light select-none;
+}
+#url-info .url{
+    @apply bg-light-secondary dark:bg-dark-secondary;
+    @apply py-2 px-2 select-none;
+    @apply rounded-full;
+    @apply primary-border;
+    @apply text-center font-light tracking-wide text-lg;
+}
+#url-info .url b{
+    @apply text-success
 }

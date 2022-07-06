@@ -17,8 +17,7 @@ const Header = memo((props) => {
                 {header.grids && Object.entries(header.grids).map((headerItem, headerKey) => {
                     if (Object(header.settings)[headerItem[0]].visible === false) return false;
                     return (
-                        <section key={headerKey} id={headerItem[0]}
-                                 className={`custom-justify-${Object(header.settings)[headerItem[0]].align}`}>
+                        <section key={headerKey} id={headerItem[0]} className={`custom-justify-${Object(header.settings)[headerItem[0]].align}`}>
                             {headerItem[1] && headerItem[1].map((item, key) => {
                                 if (item === 'LOGO') {
                                     return (

@@ -49,7 +49,6 @@ module.exports = {
       rose: colors.rose,
       error: '#F20000',
       success: '#1ED760',
-      white: '#fff',
       warning: '#e3a008',
       primary: '#0695FF',
       light: '#F1F5F9',
@@ -167,6 +166,9 @@ module.exports = {
       'default-cover': "url(/public/images/accounts/gradient-liquid-abstract-background_23-2148928671.webp)",
       'worldofftv': "url(/public/images/worldoffashiontv.jpg)",
       'diamon-overlay': "url(/public/images/diamon-icon-26.png)",
+      "texture-pattern-light": `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23dddddd' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`,
+      "texture-pattern-dark": `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%230e293f' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+
     },
     backgroundOpacity: ({ theme }) => theme('opacity'),
     backgroundPosition: {

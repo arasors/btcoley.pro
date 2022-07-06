@@ -5,23 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08cc351d-f918-4c10-9747-2fe35f270e74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/liblary/Loader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/market/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/controllers/formController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/auth/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/build-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/pages-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/trace" beforeDir="false" afterPath="$PROJECT_DIR$/build/trace" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data/translate/turkish.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/translate/turkish.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/liblary/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/liblary/component/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/component/Logo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/liblary/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/Centre.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/Centre.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/component/BuySellForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/BuySellForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/component/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/component/MarketTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/MarketTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/component/Orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home/component/Ticker.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Ticker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/tailwind.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,8 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.watch" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
@@ -131,6 +136,7 @@
       <workItem from="1656915912989" duration="24847000" />
       <workItem from="1657003947655" duration="13925000" />
       <workItem from="1657019988379" duration="7687000" />
+      <workItem from="1657090741469" duration="18817000" />
     </task>
     <servers />
   </component>

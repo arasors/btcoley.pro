@@ -1,5 +1,8 @@
 {
   "name": "btc.pro.next",
+  "title": "BTCOLEY",
+  "description": "Kolayca Kripto Al-Sat",
+  "url": "btcoley.com",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,6 +15,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@fontsource/roboto": "^4.5.7",
     "@formkit/auto-animate": "^1.0.0-beta.1",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.8.6",
@@ -20,6 +24,8 @@
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "classnames": "^2.3.1",
+    "formik": "^2.2.9",
+    "inputmask": "^5.0.7",
     "nanoid": "^4.0.0",
     "next": "12.2.0",
     "next-redux-wrapper": "^7.0.5",
@@ -32,7 +38,8 @@
     "redux-thunk": "^2.4.1",
     "socket.io": "^4.5.1",
     "socket.io-client": "^4.5.1",
-    "swr": "^1.3.0"
+    "swr": "^1.3.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

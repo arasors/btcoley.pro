@@ -1,23 +1,29 @@
-import React, {Component, memo} from "react";
+import React, {memo} from "react";
+import {useTheme} from "@mui/material/styles";
+import {Box} from "@mui/material";
 
-class Market extends Component{
+const Home = memo(function Home(props) {
+    const theme = useTheme();
 
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-    }
-
-
-    render() {
-        return(
-            <section id="home" className="hero-section">
+    return (
+        <section id="home" className="hero-section">
+            <Box
+                sx={{
+                    display: 'flex',
+                    width: '100%',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    bgcolor: 'background.default',
+                    color: 'text.primary',
+                    borderRadius: 1,
+                    p: 3,
+                }}
+            >
                 ANASAYFA
-            </section>
-        )
-    }
+            </Box>
+        </section>
+    )
 
-}
+});
 
-export default memo(Market);
+export default Home;

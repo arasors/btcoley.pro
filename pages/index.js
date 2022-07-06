@@ -2,6 +2,7 @@ import React,{useEffect, memo, useState} from "react"
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
 import cx from "classnames";
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 
 import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
@@ -11,6 +12,10 @@ import {Loader} from "components/liblary";
 
 import Market from "./market";
 import Home from "./home";
+import Login from "./auth/Login";
+
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 
 
@@ -44,18 +49,36 @@ const Main = memo(function Main(props){
        switch (path){
            case '/pro':
                return <Market />;
+           case '/auth/giris-yap':
+               return <Login />;
 
            default: return <Home />;
        }
     });
 
+
+    const theme = React.useMemo(
+        () =>
+            createTheme({
+                palette: {
+                    mode: props.site.theme,
+                },
+            }),
+        [props.site.theme],
+    );
+
+
     return (
-        <main>
-            <Header/>
-                {!loaded && <Loader />}
-                <RoutePage path={routePath} />
-            <Footer/>
-        </main>
+        <ColorModeContext.Provider value={props.site.theme}>
+            <ThemeProvider theme={theme}>
+                <main>
+                    {!routePath.includes("auth") && <Header/>}
+                        {!loaded && <Loader />}
+                        <RoutePage path={routePath} />
+                    {!routePath.includes("auth") && <Footer/>}
+                </main>
+            </ThemeProvider>
+        </ColorModeContext.Provider>
     )
 })
 
