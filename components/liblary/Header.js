@@ -1,16 +1,26 @@
-import {useState,Fragment, memo} from "react";
-import {connect} from "components/context"
+import {useState, Fragment, memo, useMemo} from "react";
+import {connect, store, updateSite} from "components/context"
 import {switchTheme, resetOrder, resetMarket, Translate} from "../controllers";
 import {header} from "../data/header"
 import {Logo, MaterialUISwitch} from "./";
 import Link from "next/link";
 import {Button, Divider, FormControlLabel, Tooltip} from "@mui/material";
 
-// eslint-disable-next-line react/display-name
-const Header = memo((props) => {
+
+const Header = memo(function Header(props) {
 
     const [state, setState] = useState({menu: false});
-    
+
+    const handleLogout = () => {
+        store.dispatch(updateSite({
+            ...props.site,
+            user: {
+                ...props.site.user.favorites,
+                isLogin: false
+            }
+        }));
+    };
+
     return (
         <Fragment>
             <nav id="desktop">
@@ -47,9 +57,9 @@ const Header = memo((props) => {
                                 if (item.auth === true && (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin)) return;
                                 if (item.forLogin===true && props.site.user.isLogin===true) return;
 
-                                // TODO: ÇIKIŞ YAP LİNK VERİLCEK USER MENÜSÜ HAZIRLANACAK
 
                                 if (item === "USER_PROFILE") {
+                                    if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
                                     return (
                                         <Link href={`hesabim`} key={key}>
                                             <Button variant={item.variant || 'outlined'} className={'nav-link'}>
@@ -59,11 +69,21 @@ const Header = memo((props) => {
                                     )
                                 }
 
+
+                                if (item === "LOGOUT") {
+                                    if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
+                                    return (
+                                        <Button variant={item.variant || 'outlined'} className={'nav-link'} onClick={() => handleLogout()}>
+                                            {Translate('auth_logout').toLocaleUpperCase('TR')}
+                                        </Button>
+                                    )
+                                }
+
                                 if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                     return (
                                         <Link href={`${item.to}`} key={key}>
                                             <Button variant={item.variant || 'outlined'} className={'nav-link'}>
-                                                {Translate(item.text)}
+                                                {Translate(item.text).toLocaleUpperCase('TR')}
                                             </Button>
                                         </Link>
                                     )
@@ -121,12 +141,22 @@ const Header = memo((props) => {
 
 
                                     if (item === "USER_PROFILE") {
+                                        if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
                                         return (
                                             <Link href={`hesabim`} key={key}>
                                                 <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                     {props.site?.user?.name}
                                                 </Button>
                                             </Link>
+                                        )
+                                    }
+
+                                    if (item === "LOGOUT") {
+                                        if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
+                                        return (
+                                            <Button variant={item.variant || 'outlined'} className={'nav-link'} onClick={() => handleLogout()}>
+                                                {Translate('auth_logout').toLocaleUpperCase('TR')}
+                                            </Button>
                                         )
                                     }
 

@@ -9,13 +9,11 @@
       <change beforePath="$PROJECT_DIR$/build/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/build-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/pages-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/trace" beforeDir="false" afterPath="$PROJECT_DIR$/build/trace" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/data/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/data/translate/turkish.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/translate/turkish.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/liblary/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/market/component/MarketTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/MarketTable.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +80,7 @@
       <recent name="C:\btcOley\btc.pro.next\public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.watch">
     <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -105,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.watch" />
         <item itemvalue="npm.dev" />
+        <item itemvalue="npm.watch" />
       </list>
     </recent_temporary>
   </component>
@@ -126,7 +124,8 @@
       <workItem from="1656915912989" duration="24847000" />
       <workItem from="1657003947655" duration="13925000" />
       <workItem from="1657019988379" duration="7687000" />
-      <workItem from="1657090741469" duration="34600000" />
+      <workItem from="1657090741469" duration="35224000" />
+      <workItem from="1657177455602" duration="1365000" />
     </task>
     <servers />
   </component>

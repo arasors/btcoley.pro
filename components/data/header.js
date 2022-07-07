@@ -95,6 +95,7 @@ export const header = {
                 dropdown: false
             },
             'USER_PROFILE',
+            'LOGOUT',
             'DIVIDE',
             'THEME_TOGGLE',
         ]
