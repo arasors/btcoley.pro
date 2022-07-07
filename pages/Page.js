@@ -12,6 +12,8 @@ import {Loader} from "components/liblary";
 import {permission} from "components/data";
 import Login from "./auth/login";
 import Account from "./account";
+import socketio from "socket.io-client";
+import {SOCKET_URL} from "components/socket/socket";
 
 const ColorModeContext = React.createContext({
     toggleColorMode: () => {
@@ -29,6 +31,41 @@ const Main = memo(function Main({site, socket, children}) {
                 filters: d.filters
             }));
         });
+
+
+        if(site.user.isLogin===true){
+            // socket.on("message", d => {
+            //     store.dispatch(updateSite({
+            //         ...site,
+            //         currencies: d.currencies,
+            //         filters: d.filters
+            //     }));
+            // });
+            const userSocket = socketio.connect(SOCKET_URL, {
+                transports: ["websocket"],
+                auth: {
+                    token: site.user.token,
+                    id: site.user.id
+                }
+            });
+
+            userSocket.on("connect", d => {
+
+
+                // console.log(d,site.user.token, site.user.id);
+            });
+            userSocket.on("disconnect", c => {
+                // console.log("bağlantı koptu", c);
+            });
+
+
+
+        }
+
+
+
+
+
 
         themeClassExits(site.theme);
     }, [site]);

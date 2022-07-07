@@ -2,10 +2,13 @@ import React from "react";
 import socketio from "socket.io-client";
 import {store, marketAction, orderAction, updateSite} from "../context"
 
-const SOCKET_URL = process.env.WSS_HOST;
+export const SOCKET_URL = process.env.WSS_HOST;
 export const SocketContext = React.createContext();
 
 export const socket = socketio.connect(SOCKET_URL, {transports: ["websocket"]});
+
+
+
 
 // this.props.socket.on("message", d => {
 //     store.dispatch(updateSite({
