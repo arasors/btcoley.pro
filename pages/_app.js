@@ -9,13 +9,15 @@ import Page from "./Page"
 function MyApp({Component, pageProps}) {
 
     return (
-        <Provider store={store}>
-            <SocketContext.Provider value={socket}>
-                <Page {...pageProps} socket={socket}>
-                    <Component {...pageProps} socket={socket}  />
-                </Page>
-            </SocketContext.Provider>
-        </Provider>
+        <React.StrictMode>
+            <Provider store={store}>
+                <SocketContext.Provider value={socket}>
+                    <Page {...pageProps} socket={socket}>
+                        <Component {...pageProps} socket={socket}  />
+                    </Page>
+                </SocketContext.Provider>
+            </Provider>
+        </React.StrictMode>
     )
 }
 

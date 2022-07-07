@@ -3,8 +3,6 @@
 @tailwind utilities;
 @tailwind screens;
 @tailwind variants;
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 /***/
 @layer base {
 [multiple], [type=date], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], [type=url], [type=week], select, textarea{
@@ -210,24 +208,34 @@ nav#mobile section {
     @apply flex items-center w-full h-full justify-between
 }
 
-nav {
+nav#mobile,
+nav#desktop{
     @apply h-16 items-center;
     @apply primary-background;
     @apply primary-border-bottom;
 }
 
 /***/
-nav #logo {
+nav#mobile #logo,
+nav#desktop #logo{
     @apply object-contain h-9 w-auto px-3 cursor-pointer;
     @apply transition-all ease-in;
 }
 
-nav #left,
-nav #center,
-nav #right {
-    @apply flex flex-row p-1
+nav#desktop #left,
+nav#desktop #center,
+nav#desktop #right,
+nav#mobile #left,
+nav#mobile #center,
+nav#mobile #right {
+    @apply flex flex-row flex-1 h-full;
+    @apply items-center
 }
 
+nav[aria-label="breadcrumb"]{
+    @apply px-4 py-1;
+    @apply primary-border-bottom;
+}
 /***/
 footer {
     @apply flex justify-between w-screen px-3 py-2 items-center h-8;
@@ -239,12 +247,21 @@ footer #logo {
 }
 
 button.nav-link {
-    @apply opacity-90 mx-1 font-normal transition-all ease-in-out;
-    @apply text-light-text border-light-secondary;
-    @apply dark:text-dark-text dark:border-dark-secondary;
-    @apply hover:opacity-100 hover:text-primary hover:border-primary;
+    @apply opacity-90 transition-all ease-in-out;
+    @apply text-light-text;
+    @apply dark:text-dark-text;
+    @apply hover:opacity-100;
+    @apply border-none hover:border-none;
+    /*@apply border-light-secondary dark:border-dark-secondary;*/
+    /*@apply hover:text-primary hover:border-primary;*/
+
+    @apply h-full mx-1 font-normal;
+    @apply rounded-none;
 }
 
+nav#mobile button.nav-link{
+    @apply h-auto;
+}
 
 /***/
 .btn1 {
@@ -337,14 +354,19 @@ button.nav-link {
     cursor: pointer;
 }
 
-section.hero-section,
 section#home,
 section#market{
     @apply flex flex-col md:h-screen-center h-fit z-0;
 }
+
+section.hero-section{
+    @apply flex flex-col md:h-screen-center h-fit z-0 mx-4 my-4 rounded-4xl;
+    @apply bg-dark-primary-third bg-primary-image;
+    @apply p-6
+}
 /***/
 section#home #slider{
-    @apply flex;
+    @apply flex flex-col md:flex-row;
     @apply h-screen-center-content
 }
 section#home #slider #banner-typography{
@@ -361,7 +383,7 @@ section#home #slider #banner-typography #head-text-sub{
     @apply font-thin;
 }
 section#home #slider #banner-typography #quick-register-email{
-    @apply w-[80%];
+    @apply w-full md:w-[80%];
 }
 section#home #slider #banner-typography #quick-register-email .quick-register-email-helper{
     @apply absolute top-full text-error
@@ -403,10 +425,10 @@ section#home #price-cards .item .volume span{
 
 
 section#home #slider #banner-image{
-    @apply justify-center;
+    @apply justify-center !bg-transparent;
 }
 section#home #slider #banner-image img{
-    @apply scale-105;
+    @apply md:scale-105 scale-50;
 }
 
 /***/
@@ -803,4 +825,29 @@ div.split #logo{
 }
 .verify-step .verify-input-title{
     @apply py-2 text-lg;
+}
+/***/
+section.inner-page{
+    @apply flex md:h-screen-center h-fit z-0 mx-4 my-4 py-3 px-3 rounded-xl;
+    @apply dark:bg-dark-primary-third bg-primary-image;
+    @apply primary-border;
+    @apply gap-x-8;
+}
+section.inner-page #sidebar{
+    @apply basis-[25%] h-full;
+    @apply rounded-xl;
+    @apply primary-border;
+    @apply translate-x-2;
+}
+section.inner-page #sidebar #title{
+    @apply font-rubik text-lg text-center;
+    @apply primary-background;
+    @apply px-2 py-3;
+    @apply select-none rounded-b rounded-t-xl;
+}
+
+
+section.inner-page #content{
+    @apply flex-1 h-full rounded-lg;
+    @apply primary-border primary-background;
 }

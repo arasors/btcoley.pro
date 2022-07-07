@@ -1,7 +1,6 @@
 import React,{memo, useEffect, useState} from "react"
-import Link from "next/link";
 import {connect} from "react-redux";
-import {Logo} from "components/liblary";
+import {Logo, TabPanel} from "components/liblary";
 import {PASSWORD_REGEX, Translate} from "components/controllers";
 // import Inputmask from "inputmask"
 import {PHONE_REGEX} from "components/controllers";
@@ -36,34 +35,7 @@ import {
     VisibilityOff
 } from "@mui/icons-material";
 import ReactCodeInput from "react-code-input";
-import {store, updateSite} from "../../components/context";
-
-function TabPanel(props) {
-    const {children, value, index, ...other} = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <Box>
-                    <Typography>{children}</Typography>
-                </Box>
-            )}
-        </div>
-    );
-}
-
-function a11yProps(key) {
-    return {
-        id: `simple-tab-${key}`,
-        'aria-controls': `simple-tabpanel-${key}`,
-    };
-}
+import {store, updateSite} from "components/context";
 
 
 const validationSchema = yup.object({
@@ -115,9 +87,7 @@ const verifyValidationSchema = yup.object({
         })
 });
 
-
 const Login = memo(function Login(props) {
-
 
     const handleTabChange = (event, newValue) => {
         setState({...state, tab: newValue});
@@ -136,7 +106,6 @@ const Login = memo(function Login(props) {
             navigate: true
         });
     };
-
 
     const formik = useFormik({
         initialValues: {
@@ -272,18 +241,14 @@ const Login = memo(function Login(props) {
         error: false,
         // loaded: false
     });
-
     useEffect(() => {
         setState(states => ({...states, loaded: true}));
     }, []);
-
-
 
     return (
         <section id="login">
             <div className="split">
                 <div id="wrap">
-
 
                     <div id="title-bar">
                         <Typography variant="h5" gutterBottom component="div" id="auth-title">
@@ -294,7 +259,6 @@ const Login = memo(function Login(props) {
                             {Translate('auth_giris_info')}
                         </Typography>
                     </div>
-
 
                     {state.navigate===true &&
                         <IconButton
@@ -316,11 +280,11 @@ const Login = memo(function Login(props) {
                     {state.verifyStep===false ?
                         <form onSubmit={formik.handleSubmit} id="auth-form">
                             <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                                <Tabs value={state.tab} onChange={handleTabChange} aria-label="basic tabs example"
+                                <Tabs value={state.tab} onChange={handleTabChange} aria-label="basic tabs"
                                       variant="scrollable">
-                                    <Tab label={Translate('auth_email_adresi_ile_giris').toLocaleUpperCase('TR')} {...a11yProps(0)} />
-                                    <Tab label={Translate('auth_telefon_numarasi_ile_giris').toLocaleUpperCase('TR')} {...a11yProps(1)} />
-                                    <Tab label={Translate('auth_tc_kimlik_ile_giris').toLocaleUpperCase('TR')} {...a11yProps(2)} />
+                                    <Tab label={Translate('auth_email_adresi_ile_giris').toLocaleUpperCase('TR')} id="simple-tab-1" aria-controls="simple-tabpanel-1" />
+                                    <Tab label={Translate('auth_telefon_numarasi_ile_giris').toLocaleUpperCase('TR')} id="simple-tab-2" aria-controls="simple-tabpanel-2" />
+                                    <Tab label={Translate('auth_tc_kimlik_ile_giris').toLocaleUpperCase('TR')} id="simple-tab-3" aria-controls="simple-tabpanel-3" />
                                 </Tabs>
                             </Box>
                             <TabPanel value={state.tab} index={0}>
@@ -394,7 +358,7 @@ const Login = memo(function Login(props) {
                                 <FormHelperText error={formik.touched.password && Boolean(formik.errors.password)}>{formik.touched.password && formik.errors.password}</FormHelperText>
                             </FormControl>
 
-                            <Button id="submit-form" fullWidth type="submit" onSubmit={formik.handleSubmit} variant="outlined">
+                            <Button disabled={!state.loaded} id="submit-form" fullWidth type="submit" onSubmit={formik.handleSubmit} variant="outlined">
                                 {state.loaded===true ? Translate('auth_giris_yap').toLocaleUpperCase('TR') : <CircularProgress />}
                             </Button>
                         </form>
@@ -415,7 +379,7 @@ const Login = memo(function Login(props) {
                                 <FormHelperText className="verify-input-text" error={verifyFormik.touched.sms && Boolean(verifyFormik.errors.sms)}>{verifyFormik.touched.sms && verifyFormik.errors.sms}</FormHelperText>
                             </FormControl>
 
-                            <Button id="submit-form" fullWidth type="submit" onSubmit={verifyFormik.handleSubmit} variant="outlined">
+                            <Button disabled={!state.loaded} id="submit-form" fullWidth type="submit" onSubmit={verifyFormik.handleSubmit} variant="outlined">
                                 {state.loaded===true ? Translate('auth_giris_yap').toLocaleUpperCase('TR') : <CircularProgress />}
                             </Button>
                         </form>

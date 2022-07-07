@@ -66,7 +66,7 @@ const Home = memo(function Home(props) {
 
     return (
         <React.Fragment>
-            <section id="home" className="hero-section">
+            <section id="home">
                 <div id="slider">
                     <div id="banner-typography" className="split">
                         <Typography variant="h2" gutterBottom component="div" id="head-text">

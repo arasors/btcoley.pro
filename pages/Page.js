@@ -1,7 +1,8 @@
-import React,{useEffect, memo, useState} from "react"
+import React, {useEffect, memo, useState} from "react"
 import {connect} from "react-redux";
 import {useRouter} from 'next/router'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {ThemeProvider, createTheme} from '@mui/material/styles';
+import Head from 'next/head';
 
 import Header from "components/liblary/Header";
 import Footer from "components/liblary/Footer";
@@ -10,10 +11,14 @@ import {themeClassExits} from "components/functions";
 import {Loader} from "components/liblary";
 import {permission} from "components/data";
 import Login from "./auth/login";
+import Account from "./account";
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+const ColorModeContext = React.createContext({
+    toggleColorMode: () => {
+    }
+});
 
-const Main = memo(function Main({site, socket, children}){
+const Main = memo(function Main({site, socket, children}) {
 
     useEffect(() => {
 
@@ -35,7 +40,7 @@ const Main = memo(function Main({site, socket, children}){
         setLoaded(false);
         setTimeout(() => {
             setLoaded(true);
-        },300);
+        }, 300);
     }, [routePath]);
 
 
@@ -50,24 +55,36 @@ const Main = memo(function Main({site, socket, children}){
     );
 
 
-    const { user } = site;
+    const {user} = site;
 
-    const permissionCheck = permission.filter(item => item.require===true && routePath.pathname.includes(item.pathname));
-    if(!user.isLogin && permissionCheck.length>0){
-        children = <Login />;
+    const permissionCheck = permission.filter(item => item.require === true && routePath.pathname.includes(item.pathname));
+    if (permissionCheck.length > 0 && !user.isLogin) {
+        children = <Login/>;
+    }
+
+    if (user.isLogin === true) {
+        if (routePath.pathname === "/auth/login" || routePath.pathname === "/auth/register") children = <Account/>
     }
 
 
     return (
-        <ColorModeContext.Provider value={site?.theme || 'dark'}>
-            <ThemeProvider theme={theme}>
-                <main>
-                    <Header/>
-                    {!loaded && <Loader />}
-                    {children}
-                </main>
-            </ThemeProvider>
-        </ColorModeContext.Provider>
+        <>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+                <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+            </Head>
+            <ColorModeContext.Provider value={site?.theme || 'dark'}>
+                <ThemeProvider theme={theme}>
+                    <main>
+                        <Header/>
+                        {!loaded && <Loader/>}
+                        {children}
+                    </main>
+                </ThemeProvider>
+            </ColorModeContext.Provider>
+        </>
+
     )
 })
 
