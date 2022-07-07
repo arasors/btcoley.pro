@@ -7,6 +7,7 @@ const nextConfig = {
     API_HOST: process.env.API_HOST,
   },
   experimental: { images: { allowFutureImage: true } }
+
 }
 
 module.exports = nextConfig

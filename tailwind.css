@@ -409,7 +409,7 @@ div#search form#search-form{
     @apply primary-background border-none;
 }
 div#search form#search-form input#search-input{
-    @apply primary-background primary-border text-sm;
+    @apply primary-background primary-border text-sm py-2;
     @apply focus:ring-0 focus:dark:ring-dark-secondary
 }
 div#search form#search-form button#search-reset{

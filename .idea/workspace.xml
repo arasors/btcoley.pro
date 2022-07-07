@@ -5,12 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08cc351d-f918-4c10-9747-2fe35f270e74" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/auth/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/data/auth/permissions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/account/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/build-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/build-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cache/eslint/.cache_1j0y5to" beforeDir="false" afterPath="$PROJECT_DIR$/build/cache/eslint/.cache_1j0y5to" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/middleware-build-manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/pages-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/pages-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/server/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/server/pages/_app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/trace" beforeDir="false" afterPath="$PROJECT_DIR$/build/trace" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/data/translate/turkish.json" beforeDir="false" afterPath="$PROJECT_DIR$/components/data/translate/turkish.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/liblary/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/liblary/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/[routes]/[route].js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/[routes]/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/auth/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/auth/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/market/component/MarketTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/MarketTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/market/component/Ticker.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/component/Ticker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/market/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/market/pro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/tailwind.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.css" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

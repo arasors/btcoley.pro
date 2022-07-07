@@ -61,7 +61,7 @@ const Header = memo(function Header(props) {
                                 if (item === "USER_PROFILE") {
                                     if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
                                     return (
-                                        <Link href={`hesabim`} key={key}>
+                                        <Link href={`/account`} key={key}>
                                             <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                 {props.site?.user?.name}
                                             </Button>
@@ -81,7 +81,7 @@ const Header = memo(function Header(props) {
 
                                 if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                     return (
-                                        <Link href={`${item.to}`} key={key}>
+                                        <Link href={item.to} key={key}>
                                             <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                 {Translate(item.text).toLocaleUpperCase('TR')}
                                             </Button>
@@ -143,7 +143,7 @@ const Header = memo(function Header(props) {
                                     if (item === "USER_PROFILE") {
                                         if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
                                         return (
-                                            <Link href={`./hesabim`} key={key}>
+                                            <Link href={`/account`} key={key}>
                                                 <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                     {props.site?.user?.name}
                                                 </Button>
@@ -162,7 +162,7 @@ const Header = memo(function Header(props) {
 
                                     if ((typeof item === "object" || Array.isArray(item)) && item.to !== "undefined") {
                                         return (
-                                            <Link href={`${item.to}`} key={key}>
+                                            <Link href={item.to} key={key}>
                                                 <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                     {Translate(item.text)}
                                                 </Button>

@@ -19,14 +19,24 @@ export const header = {
             {
                 auth: false,
                 text: 'navbar_gelismis_al_sat',
-                to: '/pro',
+                to: {
+                    query: {
+                        name: '/market/pro',
+                    },
+                    pathname: '/market/pro'
+                },
                 ico: 'auto',
                 dropdown: false
             },
             {
                 auth: false,
-                text: 'navbar_basit_al_sat',
-                to: '/basit',
+                text: 'navbar_kolay_al_sat',
+                to: {
+                    query: {
+                        name: '/market/kolay',
+                    },
+                    pathname: '/market/easy'
+                },
                 ico: 'auto',
                 dropdown: false
             }
@@ -37,7 +47,12 @@ export const header = {
             {
                 auth: true,
                 text: 'navbar_yatir',
-                to: '/hesabim/yatir',
+                to: {
+                    query: {
+                        name: '/hesabim/yatir',
+                    },
+                    pathname: '/account/deposit'
+                },
                 ico: 'auto',
                 variant: 'text',
                 dropdown_type: 'list',
@@ -45,13 +60,23 @@ export const header = {
                     {
                         auth: true,
                         text: 'navbar_kripto_yatir',
-                        to: '/hesabim/kripto-yatir',
+                        to: {
+                            query: {
+                                name: '/hesabim/kripto-yatir',
+                            },
+                            pathname: '/account/deposit/cyrpto'
+                        },
                         ico: 'kripto-yatir',
                     },
                     {
                         auth: true,
                         text: 'navbar_tl_yatir',
-                        to: '/hesabim/tl-yatir',
+                        to: {
+                            query: {
+                                name: '/hesabim/tl-yatir',
+                            },
+                            pathname: '/account/deposit/money/try'
+                        },
                         ico: 'tl-yatir',
                     }
                 ]
@@ -59,7 +84,12 @@ export const header = {
             {
                 auth: true,
                 text: 'navbar_cek',
-                to: '/hesabim/cek',
+                to: {
+                    query: {
+                        name: '/hesabim/cek',
+                    },
+                    pathname: '/account/withdraw'
+                },
                 ico: 'auto',
                 variant: 'text',
                 dropdown_type: 'list',
@@ -67,13 +97,23 @@ export const header = {
                     {
                         auth: true,
                         text: 'navbar_kripto_cek',
-                        to: '/hesabim/kripto-cek',
+                        to: {
+                            query: {
+                                name: '/hesabim/kripto-cek',
+                            },
+                            pathname: '/account/withdraw/cyrpto'
+                        },
                         ico: 'kripto-cek',
                     },
                     {
                         auth: true,
                         text: 'navbar_tl_cek',
-                        to: '/hesabim/tl-cek',
+                        to: {
+                            query: {
+                                name: '/hesabim/tl-cek',
+                            },
+                            pathname: '/account/withdraw/money/try'
+                        },
                         ico: 'tl-cek',
                     }
                 ]
@@ -82,7 +122,12 @@ export const header = {
                 auth: false,
                 forLogin: true,
                 text: 'navbar_giris_yap',
-                to: '/auth/giris-yap',
+                to: {
+                    query: {
+                        name: '/auth/giris-yap',
+                    },
+                    pathname: '/auth/login'
+                },
                 ico: 'auto',
                 dropdown: false
             },
@@ -90,7 +135,12 @@ export const header = {
                 auth: false,
                 forLogin: true,
                 text: 'navbar_yeni_uyelik',
-                to: '/auth/yeni-uyelik',
+                to: {
+                        query: {
+                            name: '/auth/yeni-uyelik'
+                        },
+                        pathname: '/auth/register'
+                    },
                 ico: 'auto',
                 dropdown: false
             },

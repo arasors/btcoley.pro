@@ -45,7 +45,7 @@ const MarketTable = memo(function MarketTable(props){
                 pair: e
             }
         }));
-    },[props.site]);
+    },[props.site,props.site.current]);
 
     const handleUpdateTab = useCallback((e) => {
         if(props.site?.current?.tab===e) return false;
@@ -58,7 +58,7 @@ const MarketTable = memo(function MarketTable(props){
         }));
     },[props.site]);
 
-    const handleUpdateFavorite = useCallback((e) => {
+    const handleUpdateFavorite = useCallback(function (e){
         let checkExits = props.site.user?.favorites && props.site.user.favorites.includes(e);
         if(checkExits===true){
             store.dispatch(updateSite({
@@ -75,7 +75,7 @@ const MarketTable = memo(function MarketTable(props){
             user: {
                 ...props.site.user,
                 favorites: [
-                    ...props.site.user.favorites,
+                    ...props.site?.user?.favorites || [],
                     e
                 ]
             }
