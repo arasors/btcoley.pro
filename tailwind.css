@@ -181,7 +181,7 @@ hr#separate{
 }
 /***/
 nav#desktop {
-    @apply hidden md:flex;
+    @apply hidden md:flex z-50;
     @apply flex-row flex-nowrap justify-between overflow-hidden whitespace-nowrap;
 }
 
@@ -190,7 +190,7 @@ nav#desktop #toggle-theme{
 }
 
 nav#mobile {
-    @apply flex md:hidden w-full h-16 sticky top-0;
+    @apply flex md:hidden w-full h-16 sticky top-0 z-50;
     @apply flex-col flex-nowrap whitespace-nowrap
 }
 
@@ -340,7 +340,73 @@ button.nav-link {
 section.hero-section,
 section#home,
 section#market{
-    @apply flex flex-col md:h-screen-center h-fit z-10;
+    @apply flex flex-col md:h-screen-center h-fit z-0;
+}
+/***/
+section#home #slider{
+    @apply flex;
+    @apply h-screen-center-content
+}
+section#home #slider #banner-typography{
+    @apply justify-center !bg-transparent;
+    @apply px-4 gap-y-4;
+}
+section#home #slider #banner-typography .light{
+    @apply absolute left-0 bottom-0 -z-1;
+}
+section#home #slider #banner-typography #head-text{
+    @apply font-bold;
+}
+section#home #slider #banner-typography #head-text-sub{
+    @apply font-thin;
+}
+section#home #slider #banner-typography #quick-register-email{
+    @apply w-[80%];
+}
+section#home #slider #banner-typography #quick-register-email .quick-register-email-helper{
+    @apply absolute top-full text-error
+}
+section#home #price-cards{
+    @apply w-full h-32 py-3 px-2;
+    @apply flex gap-x-3 items-center;
+}
+section#home #price-cards .head{
+    @apply flex gap-x-4;
+}
+section#home #price-cards .item{
+    @apply py-1 px-2 cursor-pointer select-none;
+    @apply flex flex-col gap-1;
+    @apply border-dashed border border-light-secondary/20 rounded;
+    @apply -translate-y-2 scale-90 hover:scale-95 transition-all
+}
+section#home #price-cards .item .title{
+    @apply font-medium text-xl;
+}
+section#home #price-cards .item .perc{
+    @apply font-normal text-xl;
+}
+section#home #price-cards .item .price{
+    @apply font-bold text-3xl;
+}
+section#home #price-cards .item .volume{
+    @apply font-thin text-base;
+    @apply flex gap-x-0.5 flex-nowrap;
+}
+section#home #price-cards .item .volume span:first-of-type{
+    @apply text-sm
+}
+section#home #price-cards .item .volume span{
+    @apply flex-1 flex items-center justify-center
+}
+
+
+
+
+section#home #slider #banner-image{
+    @apply justify-center;
+}
+section#home #slider #banner-image img{
+    @apply scale-105;
 }
 
 /***/
@@ -638,15 +704,17 @@ div#banner-split{
 }
 div.split{
     @apply flex-1;
-    @apply primary-border;
     @apply flex flex-col items-center;
+    @apply primary-background;
+    background-size: 10px;
+}
+section > div.split{
+    @apply bg-texture-pattern-light dark:bg-texture-pattern-dark;
+    @apply primary-border;
     @apply p-6 relative overflow-hidden;
     @apply shadow-xl shadow-dark-primary;
-    @apply bg-light dark:bg-dark-primary;
-    @apply bg-texture-pattern-light dark:bg-texture-pattern-dark;
-    background-size: 10px;
-
 }
+
 div.split div#wrap{
     @apply h-full;
     @apply flex flex-col gap-y-4;

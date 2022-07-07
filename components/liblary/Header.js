@@ -15,7 +15,7 @@ const Header = memo(function Header(props) {
         store.dispatch(updateSite({
             ...props.site,
             user: {
-                ...props.site.user.favorites,
+                ...props.site.user.favorites || [],
                 isLogin: false
             }
         }));

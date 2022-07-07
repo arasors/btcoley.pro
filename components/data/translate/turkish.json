@@ -71,5 +71,11 @@
   "auth_alert_authenticator_kodunu_fazla_girdiniz": "Authenticator kodu 6 haneli olmalı",
   "auth_alert_giris_basarisiz": "Giriş başarısız, lütfen bilgilerinizi kontrol edin.",
   "auth_alert_kod_yanlis": "Doğrulama kodu yanlış, lütfen tekrar deneyin.",
-  "auth_logout": "Çıkış Yap"
+  "auth_logout": "Çıkış Yap",
+  "auth_register_kayit_ol": "Kayıt Ol",
+  "auth_register_email": "E-mail",
+  "home_banner_kolayca": "Kolayca",
+  "home_banner_kripto_para": "kriptopara",
+  "home_banner_al_sat": "al-sat!",
+  "home_banner_slogan_alt_metin": "BTC, ETH, LTC, AVAX, ve onlarcası için ücretsiz hesap oluştur."
 }

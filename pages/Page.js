@@ -65,7 +65,6 @@ const Main = memo(function Main({site, socket, children}){
                     <Header/>
                     {!loaded && <Loader />}
                     {children}
-                    {!routePath.pathname.includes("auth") && <Footer/>}
                 </main>
             </ThemeProvider>
         </ColorModeContext.Provider>

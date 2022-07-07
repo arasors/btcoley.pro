@@ -4,7 +4,7 @@ import {connect} from "components/context";
 const Account = memo(function Account(props){
 
     return(
-        <pre className="max-w-full">{JSON.stringify(props.site?.user, null, 4)}</pre>
+        <pre className="max-w-full">{JSON.stringify(props.site?.user.profile, null, 4)}</pre>
     )
 })
 
