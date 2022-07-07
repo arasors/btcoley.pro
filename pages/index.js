@@ -12,7 +12,7 @@ import {Loader} from "components/liblary";
 
 import Market from "./market";
 import Home from "./home";
-import Login from "./auth/Login";
+import Auth from "./auth";
 
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
@@ -49,8 +49,10 @@ const Main = memo(function Main(props){
        switch (path){
            case '/pro':
                return <Market />;
+           case '/hesabim':
+               return <Auth path={path} />;
            case '/auth/giris-yap':
-               return <Login />;
+               return <Auth path={path} />;
 
            default: return <Home />;
        }

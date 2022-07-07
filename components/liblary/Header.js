@@ -143,7 +143,7 @@ const Header = memo(function Header(props) {
                                     if (item === "USER_PROFILE") {
                                         if (props.site?.user?.isLogin === "undefined" || !props.site?.user?.isLogin) return;
                                         return (
-                                            <Link href={`hesabim`} key={key}>
+                                            <Link href={`./hesabim`} key={key}>
                                                 <Button variant={item.variant || 'outlined'} className={'nav-link'}>
                                                     {props.site?.user?.name}
                                                 </Button>
